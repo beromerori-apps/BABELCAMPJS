@@ -26,3 +26,24 @@
     font-weight: 400;
     src: url(../assets/fonts/Lato/Lato-Regular.ttf) format('woff2');
 }
+
+@font-face {
+    font-family: 'Amatic_SC';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/fonts/Amatic_SC/AmaticSC-Regular.ttf) format('woff2');
+}
+
+@font-face {
+    font-family: 'AmaticSC-Bold';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/fonts/Amatic_SC/AmaticSC-Bold.ttf) format('woff2');
+}
+
+@font-face {
+    font-family: 'Domine-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/fonts/Domine/Domine-Regular.ttf) format('woff2');
+}

@@ -1,0 +1,30 @@
+#contact-information div {
+    width: 70%;
+    height: 90px;
+    position: relative;
+    display: block;
+    margin-left: 70px;
+    border-top: dotted #4dc48e;
+    border-right: dotted #4dc48e;
+    border-bottom: dotted #4dc48e;
+}
+
+#contact-information h2 {
+    padding-left: 50px;
+}
+
+#contact-information img {
+    //height: 17%;
+    width: 18%;
+    position: relative;
+    left: 25px;
+    bottom: 95px;
+    border-radius: 50%;
+    border: dotted #4dc48e;
+}
+
+#contact-information article {
+    position: relative;
+    bottom: 70px;
+    padding-left: 40px;
+}

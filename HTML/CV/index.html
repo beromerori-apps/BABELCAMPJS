@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/nav.css">
-    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/personal-information.css">
+    <link rel="stylesheet" href="styles/contact-information.css">
+    <link rel="stylesheet" href="styles/programming-languages.css">
     <link rel="stylesheet" href="styles/footer.css">
 </head>
 
@@ -30,7 +32,7 @@
         <div class="row">
             <div class="col-2">
                 <img id="me" src="assets/img/me.jpg" alt="Me image">
-                <h4 id="my-name">Blanca Romero Rico</h4>
+                <h1 id="my-name">Blanca Romero Rico</h1>
             </div>
             <div class="col-10">
                 <img id="header" src="assets/img/header.jpg" alt="Header image">
@@ -42,7 +44,7 @@
             <li class="nav-item"><a href="#home">Home</a></li>
             <li class="nav-item"><a href="#personal-information">Personal information</a></li>
             <li class="nav-item"><a href="#contact-information">Contact information</a></li>
-            <li class="nav-item"><a href="#experience">Experience</a></li>
+            <li class="nav-item"><a href="#programming-languages">Programming Languages</a></li>
             <li class="nav-item"><a href="#training">Training</a></li>
             <li class="nav-item"><a href="#languages">Languages</a></li>
             <li class="nav-item"><a href="#contact">Contact</a></li>
@@ -53,9 +55,12 @@
             <div class="row">
                 <div class="col-4">
                     <section id="personal-information">
-                        <header class="title">
-                            <h2>Personal information</h2>
-                        </header>
+                        <div>
+                            <header>
+                                <h2>Personal information</h2>
+                            </header>
+                        </div>
+                        <img src="assets/img/person1.png" alt="Person">
                         <article>
                             <ul>
                                 <li>Name: Blanca</li>
@@ -66,9 +71,12 @@
                         </article>
                     </section>
                     <section id="contact-information">
-                        <header class="title">
-                            <h2>Contact information</h2>
-                        </header>
+                        <div>
+                            <header>
+                                <h2>Contact information</h2>
+                            </header>
+                        </div>
+                        <img src="assets/img/contact.ico" alt="Contact">
                         <article>
                             <ul>
                                 <li>Phone: 677150301</li>
@@ -79,13 +87,24 @@
                     </section>
                 </div>
                 <div class="col-8">
-                    <section id="experience">
-                        <header class="title">
-                            <h2>Experience</h2>
-                        </header>
-                        <article>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis molestiae reprehenderit molestias modi voluptatum inventore debitis minus adipisci veniam, tenetur quas aliquid est dolorem dolores quidem nihil, asperiores voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, soluta!</p>
-                        </article>
+                    <section id="programming-languages">
+                        <div>
+                            <header>
+                                <h2>Programming Languages</h2>
+                            </header>
+                        </div>
+                        <img src="assets/img/computer.png" alt="Computer">
+                        <div>
+                            <article>
+                                <img src="assets/img/c++.ico" alt="C++">
+                            </article>
+                            <article>
+                                <img src="assets/img/java.ico" alt="Java">
+                            </article>
+                            <article>
+                                <img src="assets/img/c.png" alt="C">
+                            </article>
+                        </div>
                     </section>
                     <section id="training">
                         <header class="title">
@@ -129,7 +148,7 @@
             </div>
         </div>
         <section id="contact" class="container">
-            <header class="row title">
+            <header class="row">
                 <h2>Contact</h2>
             </header>
             <div class="row">
@@ -152,17 +171,8 @@
                             <input type="email" name="email" id="email" placeholder="Tell us your email" required pattern="[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+">
                         </div>
                     </div>
-                    <div class="form-radio">
-                        <label for="male">Male</label>
-                        <input type="radio" name="gender" id="male" value="male" required>
-                        <label for="female">Famale</label>
-                        <input type="radio" name="gender" id="female" value="female" required>
-                    </div>
                     <div class="col-4">
                         <div class="form-input">
-                            <label for="birthdate">Birthdate: </label>
-                            <br>
-                            <br>
                             <label for="message">Message: </label>
                             <br>
                             <br>
@@ -170,9 +180,6 @@
                     </div>
                     <div class="col-8">
                         <div class="form-input">
-                            <input type="date" name="bithdate" id="bithdate" required>
-                            <br>
-                            <br>
                             <textarea name="message" id="message" cols="30" rows="10" placeholder="What do you need?" required></textarea>
                         </div>
                     </div>
@@ -194,10 +201,10 @@
                     <a href="http://www.instagram.com" target="_blank">instagram</a>
                 </li>
             </ul>
-            <p class="footer-copyright col-4">
+            <h6 id="footer-copyright" class="col-4">
                 <mark>Blanca Romero</mark>
                 <time datetime="2017-01-01">2017</time>
-            </p>
+            </h6>
         </div>
     </footer>
 </body>

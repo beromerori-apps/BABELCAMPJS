@@ -12,16 +12,22 @@
     margin-left: 15px;
 }
 
-.footer .footer-copyright {
+#footer-copyright {
     text-align: right;
+    margin-top: 15px;
 }
 
-.footer .footer-copyright mark {
+
+/*h6 #footer-copyright .col-4 {
+    margin-top: 20px;
+}*/
+
+#footer-copyright mark {
     background-color: transparent;
     color: white;
 }
 
-.footer .footer-copyright time {
+#footer-copyright time {
     color: white;
     margin-right: 15px;
 }

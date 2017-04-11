@@ -7,13 +7,14 @@
     top: 0;
     /*z-index: 100;*/
     display: flex;
-    align-items: left;
+    align-items: center;
     justify-content: space-between;
 }
 
 .nav .nav-item {
     list-style: none;
     display: inline-block;
+    padding-left: 17px;
 }
 
 .nav .nav-item > a {
@@ -26,6 +27,7 @@
     line-height: 3em;
     display: inline-block;
     text-transform: uppercase;
+    font-size: 25px;
 }
 
 .nav .nav-item.nav-item--active > a,

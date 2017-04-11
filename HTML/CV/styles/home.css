@@ -7,10 +7,11 @@
     border-radius: 50%;
     margin-top: 50%;
     margin-left: 20%;
+    border: dotted black;
 }
 
 #my-name {
-    margin-left: 14%;
+    margin: 10%;
 }
 
 

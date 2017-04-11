@@ -1,0 +1,51 @@
+#programming-languages div {
+    margin-top: 72px;
+    width: 70%;
+    height: 90px;
+    position: relative;
+    display: block;
+    margin-left: 70px;
+    border-top: dotted #3687d5;
+    border-right: dotted #3687d5;
+    border-bottom: dotted #3687d5;
+}
+
+#programming-languages h2 {
+    padding-left: 50px;
+}
+
+#programming-languages img {
+    width: 9%;
+    position: relative;
+    left: 25px;
+    bottom: 95px;
+    border-radius: 50%;
+    border: dotted #3687d5;
+}
+
+#programming-languages article {
+    position: relative;
+    top: 10px;
+    padding-left: 40px;
+}
+
+
+/*#programming-languages div {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#programming-languages article {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#programming-languages article img {
+    width: 30%;
+    object-fit: cover;
+}*/

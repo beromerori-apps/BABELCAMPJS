@@ -1,6 +1,6 @@
     body {
         font-size: 16px;
-        font-family: Lato, Helvetica, sans-serif;
+        font-family: 'Domine-Regular', Helvetica, sans-serif;
         margin: 0;
     }
     
@@ -9,8 +9,9 @@
     h3,
     h4,
     h5,
-    h6 {
-        font-family: Aton, Helvetica, sans-serif;
+    h6,
+    a {
+        font-family: 'AmaticSC-Bold', Helvetica, sans-serif;
     }
     
     h1 {
@@ -39,17 +40,21 @@
     
     h6 {
         font-size: 16px;
+        margin: 0;
     }
     
     section {
-        padding-top: 72px;
+        //padding-top: 72px;
     }
-    
-    .title {
+    /*.title {
         border: 2px dotted black;
-        margin-right: 70px;
-    }
+        margin: 20px;
+    }*/
     
     ul {
         list-style-image: url('../assets/img/arrow.gif');
+    }
+    
+    p {
+        margin: 20px;
     }
