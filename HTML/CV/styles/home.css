@@ -1,34 +1,20 @@
-#header {
-    width: 100%;
-    height: 50vh;
+#home {
+    background-color: #6A123C;
+    height: 300px;
+    text-align: center;
 }
 
-#me {
+#home img {
     border-radius: 50%;
-    margin-top: 50%;
-    margin-left: 20%;
     border: dotted black;
+    /*margin-left: 30%;*/
+    margin-top: 20%;
+    /*position: relative;
+    top: 50px;
+    left: 30px;*/
 }
 
-#my-name {
-    margin: 10%;
+.home {
+    position: relative;
+    top: 70px;
 }
-
-
-/*#home:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 50.5%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 1;
-    /*margin-top: 17px;
-*/
-
-
-/*#home h1 {
-    visibility: hidden;
-}*/

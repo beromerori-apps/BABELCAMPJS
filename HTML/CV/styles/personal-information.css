@@ -1,31 +1,39 @@
 #personal-information div {
-    margin-top: 72px;
-    width: 70%;
-    height: 90px;
+    /*margin-top: 72px;*/
+    width: 80%;
+    height: 70px;
     position: relative;
-    display: block;
-    margin-left: 70px;
+    left: 15%;
+    top: 10%;
+    /*display: block;
+    margin-left: 70px;*/
     border-top: dotted #2f5a78;
     border-right: dotted #2f5a78;
     border-bottom: dotted #2f5a78;
 }
 
 #personal-information h2 {
-    padding-left: 50px;
+    padding-left: 20%;
+    padding-top: 20px;
+    color: #2f5a78;
 }
 
 #personal-information img {
-    //height: 17%;
-    width: 18%;
+    width: 15%;
     position: relative;
-    left: 25px;
-    bottom: 95px;
+    left: 7%;
+    //bottom: 95px;
+    bottom: 43px;
     border-radius: 50%;
     border: dotted #2f5a78;
 }
 
 #personal-information article {
     position: relative;
-    bottom: 70px;
-    padding-left: 40px;
+    bottom: 8%;
+    left: 8%;
+}
+
+ul {
+    list-style-image: url('../assets/img/arrow.gif');
 }

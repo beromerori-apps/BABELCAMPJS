@@ -1,0 +1,32 @@
+#training div {
+    width: 80%;
+    height: 70px;
+    position: relative;
+    left: 15%;
+    top: 10%;
+    border-top: dotted #0071a2;
+    border-right: dotted #0071a2;
+    border-bottom: dotted #0071a2;
+}
+
+#training h2 {
+    padding-left: 40%;
+    padding-top: 20px;
+    color: #0071a2;
+}
+
+#training img {
+    width: 7.5%;
+    position: relative;
+    left: 11%;
+    //bottom: 95px;
+    bottom: 44px;
+    border-radius: 50%;
+    border: dotted #0071a2;
+}
+
+#training article {
+    position: relative;
+    bottom: 12%;
+    left: 12%;
+}

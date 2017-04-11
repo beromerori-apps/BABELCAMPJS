@@ -1,51 +1,34 @@
 #programming-languages div {
-    margin-top: 72px;
-    width: 70%;
-    height: 90px;
+    width: 72%;
+    height: 95px;
     position: relative;
-    display: block;
-    margin-left: 70px;
-    border-top: dotted #3687d5;
-    border-right: dotted #3687d5;
-    border-bottom: dotted #3687d5;
+    left: 20%;
+    top: 20px;
+    border-top: dotted #2d7fd2;
+    border-right: dotted #2d7fd2;
+    border-bottom: dotted #2d7fd2;
 }
 
 #programming-languages h2 {
-    padding-left: 50px;
+    padding-left: 40%;
+    padding-top: 20px;
+    color: #33495d;
+    font-size: 30px;
+    color: #2d7fd2;
 }
 
 #programming-languages img {
-    width: 9%;
+    width: 7%;
     position: relative;
-    left: 25px;
-    bottom: 95px;
+    left: 16%;
+    //bottom: 95px;
+    bottom: 80px;
     border-radius: 50%;
-    border: dotted #3687d5;
+    border: dotted #2d7fd2;
 }
 
 #programming-languages article {
     position: relative;
-    top: 10px;
-    padding-left: 40px;
+    bottom: 45px;
+    left: 18%;
 }
-
-
-/*#programming-languages div {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    width: 100%;
-    justify-content: space-around;
-}
-
-#programming-languages article {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#programming-languages article img {
-    width: 30%;
-    object-fit: cover;
-}*/

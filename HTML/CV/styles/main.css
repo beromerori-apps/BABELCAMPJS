@@ -1,60 +1,81 @@
-    body {
-        font-size: 16px;
-        font-family: 'Domine-Regular', Helvetica, sans-serif;
-        margin: 0;
-    }
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    a {
-        font-family: 'AmaticSC-Bold', Helvetica, sans-serif;
-    }
-    
-    h1 {
-        font-size: 35px;
-        margin: 0;
-    }
-    
-    h2 {
-        font-size: 30px;
-        text-align: center;
-        text-shadow: 2px 1px 5px rgba(0, 0, 0, 0.3);
-    }
-    
-    h3 {
-        font-size: 25px;
-        letter-spacing: 2px;
-    }
-    
-    h4 {
-        font-size: 20px;
-    }
-    
-    h5 {
-        font-size: 18px;
-    }
-    
-    h6 {
-        font-size: 16px;
-        margin: 0;
-    }
-    
-    section {
-        //padding-top: 72px;
-    }
-    /*.title {
-        border: 2px dotted black;
-        margin: 20px;
-    }*/
-    
-    ul {
-        list-style-image: url('../assets/img/arrow.gif');
-    }
-    
-    p {
-        margin: 20px;
-    }
+body {
+    font-size: 16px;
+    font-family: 'Amatic_SC', Helvetica, sans-serif;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+{
+    font-family: 'Domine-Regular', Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 35px;
+    /*margin: 0;*/
+}
+
+h2 {
+    font-size: 30px;
+    margin: 0;
+    /*text-align: center;
+        text-shadow: 2px 1px 5px rgba(0, 0, 0, 0.3);*/
+}
+
+h3 {
+    font-size: 25px;
+    /*letter-spacing: 2px;*/
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+    margin: 0;
+    color: white;
+}
+
+#left {
+    height: 100vh;
+    /*background-color: #B15983;*/
+}
+
+#right {
+    height: 100vh;
+    /*background-color: #D58EB0;*/
+}
+
+#personal-information {
+    height: 50%;
+    /*background-color: #003333;*/
+}
+
+#contact-information {
+    height: 50%;
+    /*background-color: #0D4D4D;*/
+}
+
+#training {
+    height: 50%;
+    /*background-color: #407F7F;*/
+}
+
+#programming-languages {
+    height: 50%;
+    /*background-color: #669999;*/
+}
+
+#languages {
+    height: 50%;
+    /*background-color: #022B39;*/
+}

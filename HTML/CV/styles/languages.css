@@ -1,0 +1,32 @@
+#languages div {
+    width: 80%;
+    height: 70px;
+    position: relative;
+    left: 15%;
+    top: 10%;
+    border-top: dotted #33495d;
+    border-right: dotted #33495d;
+    border-bottom: dotted #33495d;
+}
+
+#languages h2 {
+    padding-left: 40%;
+    padding-top: 20px;
+    color: #33495d;
+}
+
+#languages img {
+    width: 7.5%;
+    position: relative;
+    left: 11%;
+    //bottom: 95px;
+    bottom: 44px;
+    border-radius: 50%;
+    border: dotted #33495d;
+}
+
+#languages article {
+    position: relative;
+    bottom: 12%;
+    left: 12%;
+}

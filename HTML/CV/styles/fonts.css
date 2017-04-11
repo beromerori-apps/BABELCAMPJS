@@ -1,33 +1,4 @@
 @font-face {
-    font-family: 'Aton';
-    font-style: normal;
-    font-weight: 400;
-    src: url(../assets/fonts/Anton/Anton-Regular.ttf) format('woff2');
-}
-
-
-/*@font-face {
-    font-family: 'Aton';
-    font-style: normal;
-    font-weight: 700;
-    src: url(../assets/fonts/Anton/Anton-Regular.ttf) format('ttf');
-}
-
-@font-face {
-    font-family: 'Aton';
-    font-style: normal;
-    font-weight: 700;
-    src: url(../assets/fonts/Anton/Anton-Regular.ttf) format('ttf');
-}*/
-
-@font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    src: url(../assets/fonts/Lato/Lato-Regular.ttf) format('woff2');
-}
-
-@font-face {
     font-family: 'Amatic_SC';
     font-style: normal;
     font-weight: 400;
