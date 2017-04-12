@@ -16,17 +16,17 @@
 }
 
 #training img {
-    width: 7.5%;
+    width: 7%;
     position: relative;
     left: 11%;
     //bottom: 95px;
-    bottom: 44px;
+    bottom: 39px;
     border-radius: 50%;
     border: dotted #0071a2;
 }
 
 #training article {
     position: relative;
-    bottom: 12%;
+    bottom: 6%;
     left: 12%;
 }

@@ -1,5 +1,5 @@
 body {
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'Amatic_SC', Helvetica, sans-serif;
     margin: 0;
 }
@@ -43,6 +43,11 @@ h6 {
     font-size: 16px;
     margin: 0;
     color: white;
+}
+
+li {
+    font-size: 20px;
+    font-family: 'Amatic_SC', Helvetica, sans-serif;
 }
 
 #left {
