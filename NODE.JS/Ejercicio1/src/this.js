@@ -9,17 +9,18 @@ const coche = new Coche();
 
 //coche.cuantasRuedas();
 
-const numRuedas = coche.cuantasRuedas;
-numRuedas();
+/*const numRuedas = coche.cuantasRuedas.bind(coche);
+numRuedas();*/
 
 //numRuedas();
 /*setTimeout(function() {
 	coche.cuantasRuedas();
 }, 2000);*/
 
-/*const camion = {
+const camion = {
     ruedas: 8,
-    cuantasRuedas: coche.cuantasRuedas
+    cuantasRuedas: coche.cuantasRuedas.bind(coche)
 }
 
-camion.cuantasRuedas();*/
+//camion.cuantasRuedas();
+camion.cuantasRuedas.call(coche);
