@@ -6,4 +6,22 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+// parametros en la ruta
+router.get('/parametros/:id', function(req, res, next) {
+    const id = req.params.id;
+    console.log('req.params', req.params);
+    res.send('ok');
+});
+
+router.get('/parametros/piso/:piso/puerta/:puerta', function(req, res, next) {
+    console.log('req.params', req.params);
+    res.send('varios params');
+});
+
+// parametros en la query-string
+router.get('/parametros', function(req, res, next) {
+    console.log('req.query', req.query);
+    res.send('ok con query');
+});
+
 module.exports = router;
