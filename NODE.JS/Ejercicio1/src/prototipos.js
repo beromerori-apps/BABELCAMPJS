@@ -18,6 +18,7 @@ persona.saluda();
 function Agente(nombre) {
     Persona.call(this, nombre);
     //Esto ejecuta el constructor de Persona con el this de Agente
+    //Esto es como llamar al super en otros lenguajes
 }
 
 // asignamos como prototipo una persona
@@ -39,3 +40,8 @@ function Superheroe() {
 }
 
 // Asignar todas las propiedades (y metodos) de un Superheroe al prototipo de Agente
+
+Object.assign(Agente.prototype, new Superheroe());
+
+agente.vuela();
+agente.esquivaBalas();
