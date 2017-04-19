@@ -1,9 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    const segundo = (new Date()).getSeconds();
+    res.render('index', {
+        title: 'NodeApi',
+        textoSinEscapar: '<p>Sin escapar</p>',
+        condicion: {
+            segundo: segundo,
+            estado: segundo % 2 === 0
+        },
+        usuarios: [
+            { nombre: 'Smith' },
+            { nombre: 'Jones' }
+        ]
+    });
 });
 
 // parametros en la ruta
@@ -18,10 +29,24 @@ router.get('/parametros/piso/:piso/puerta/:puerta', function(req, res, next) {
     res.send('varios params');
 });
 
-// parametros en la query-string
+// parametros en la query-string - http://localhost:3000/?variable=valor&variable=valor
 router.get('/parametros', function(req, res, next) {
     console.log('req.query', req.query);
     res.send('ok con query');
 });
+
+
+// parametros en el body
+router.post('/parametros', function(req, res, next) {
+    console.log('req.body', req.body);
+    res.send('ok, recibido post');
+});
+
+// router.put('parametros/:id', function(req, res, next) {
+// 	console.log('req.body', req.body);
+// 	res.send('ok, recibido put');
+// });
+
+
 
 module.exports = router;
