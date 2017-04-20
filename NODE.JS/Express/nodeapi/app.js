@@ -5,8 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+// Conectamos a la base de datos
+require('./lib/connectMongoose');
+require('./models/Agente');
+
+//var index = require('./routes/index');
+require('./model/Usuario');
 
 var app = express();
 
@@ -22,17 +26,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(function(req, res, next) {
-            //     // en cada middleware tengo que responder o llamar a next 
-            //     console.log('URL:', req.OriginalUrl);
-            //     next(new Error('fatal'));
-            //     //res.send('ok');
-            // });
+ /*app.use(function(req, res, next) {
+    // en cada middleware tengo que responder o llamar a next 
+    console.log('URL:', req.OriginalUrl);
+    next(new Error('fatal'));
+    res.send('ok');
+});*/
 
-
-app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
-//app.use('/users', users);
+// Rutas de la aplicacion
+app.use('/',              require('./routes/index'));
+app.use('/apiv1/agentes', require('./routes/apiv1/agentes'));
+app.use('/apiv1/usuarios', require('./routes/apiv1/usuarios'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -21,4 +21,4 @@ MongoClient.connect('mongodb://localhost:27017/cursonode',
             });
         db.close();
     });
-    });        
+});        
