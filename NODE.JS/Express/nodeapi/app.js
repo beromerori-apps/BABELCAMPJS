@@ -10,7 +10,7 @@ require('./lib/connectMongoose');
 require('./models/Agente');
 
 //var index = require('./routes/index');
-require('./model/Usuario');
+require('./models/Usuario');
 
 var app = express();
 
