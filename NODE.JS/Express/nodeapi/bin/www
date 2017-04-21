@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('nodeapi:server');
 var http = require('http');
+const cluster = require('cluster');
 
 /**
  * Get port from environment and store in Express.
@@ -14,6 +15,19 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+// Si somos el proceso master, arrancamos los clones
+if(cluster.isMaster) {
+    
+    // Mirar cuantas CPUs tenemos
+    const numCPUs = require('os').cpus().length;
+    console.log(numCPUs);
+
+    for(let i = 0; i< numCPUs; i++) {
+      cluster.fork();
+    }
+}
+else {
 
 /**
  * Create HTTP server.
@@ -28,7 +42,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
+}
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -86,5 +100,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
 }
