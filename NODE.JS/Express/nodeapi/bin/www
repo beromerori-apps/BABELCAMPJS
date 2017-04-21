@@ -23,6 +23,11 @@ if(cluster.isMaster) {
     const numCPUs = require('os').cpus().length;
     console.log(numCPUs);
 
+    cluster.on('exit', (worker, code, signal) => {
+      console.log(`Worker ${worker.process.pid} ha muerto con el codigo: ${code} y la señal es: ${signal}`);
+      cluster.fork();
+    });
+
     for(let i = 0; i< numCPUs; i++) {
       cluster.fork();
     }
