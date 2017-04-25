@@ -2,14 +2,13 @@
 
 const mongoose = require('mongoose');
 
-// Cremaos un esquema
+// Creamos el schema Anuncio
 const anuncioSchema = mongoose.Schema({
-
     title: String,
-    type: String,
+    sale: Boolean,
     price: Number,
     image: String,
-    tags: []
+    tags: [String]
 });
 
 // Creamos el modelo de Anuncio
