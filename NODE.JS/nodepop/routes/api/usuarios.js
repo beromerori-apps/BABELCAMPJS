@@ -46,14 +46,14 @@ router.post('/login', (req, res, next) => {
         // Si el usuario === null (NO existe)
 
         if(!usuario) {
-            res.json({ success: true, error: 'Credenciales incorrectas' });
+            res.json({ success: false, error: 'Credenciales incorrectas' });
             return;
         }
 
         // Si la password es incorrecta
 
         if(password !== usuario.password) {
-            res.json({ success: true, error: 'Credenciales incorrectas' });
+            res.json({ success: false, error: 'Credenciales incorrectas' });
             return;    
         }
 
@@ -66,6 +66,18 @@ router.post('/login', (req, res, next) => {
             }
             res.json({success: true, token: token});
         });
+    });
+});
+
+// GET /api/usuarios
+router.get('/', (req, res, next) => {
+
+    Usuario.find((err, usuarios) => {
+        if(err) {
+            next(err);
+            return;
+        }
+        res.json({ success: true, result: usuarios });
     });
 });
 

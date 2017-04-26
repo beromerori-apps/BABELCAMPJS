@@ -1,29 +1,22 @@
 'use strict';
 
-const mongoose = require('mongoose');
+const fs = require('fs');
 
-// Nos conectamos a la BBDD
-require('./connectMongoose');
+function leerFichero(callback) {
 
-require('../models/Anuncio');
+    console.log('leerFichero.js');
 
-const Anuncio = mongoose.model('Anuncio');
+    const fichero = '../anuncios.js';
+    
+    fs.readFile(fichero, 'utf-8', function(err, datos) {
+        if(err) {
+            callback(err);
+            return;
+        }
+        const anuncios = JSON.parse(datos);
+        console.log(datos);
+        callback(null, datos);
+    });
+}
 
-const anuncio = new Anuncio ({title: "A", price: 10});
-
-/*anuncio.save(function(err, anuncioCreado) {
-    if(err) {
-        console.log('Error', err);
-        return;
-    }
-    console.log('Anuncio ' + anuncioCreado.title + ' creado');
-});*/
-
-Anuncio.remove({}, function(err) {
-    if(err) {
-        console.log('Error', err);
-        return;
-    }
-    console.log('Collection anuncios dropped');
-});
-
+module.exports = leerFichero;
