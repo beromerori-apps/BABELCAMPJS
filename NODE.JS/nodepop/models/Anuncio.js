@@ -12,21 +12,18 @@ const anuncioSchema = mongoose.Schema({
 });
 
 // Creamos metodo estatico en el modelo Anuncio para realizar las busquedas con filtros
-anuncioSchema.statics.list = function (criterios, callback) {
+anuncioSchema.statics.list = function(criterios, skip, limit, returnTotal, callback) {
 
     const query = Anuncio.find(criterios);
+    
+    // Paginacion
+    query.skip(skip);
+    query.limit(limit);
+    //query.returnTotal(returnTotal);
 
-    // Añado paginacion, ordenacion, ...
-
-    //query.start(start);
-    //query.limit(limit);
-    //query.sort(sort);
-    //query.includeTotal(includeTotal);
-    //query.token(token);
-
-    // Ejecuto la query
     query.exec(callback);
 }
 
 // Creamos el modelo de Anuncio
 var Anuncio = mongoose.model('Anuncio', anuncioSchema);
+//mongoose.model('Anuncio', anuncioSchema);

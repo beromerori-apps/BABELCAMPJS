@@ -1,0 +1,26 @@
+{
+    "anuncios": [
+        {   
+            "title": "Bicicleta",
+            "sale": true,
+            "price": 230.15,
+            "image": "bici.jpg",
+            "tags": [ "lifestyle", "motor"]
+        },
+        {
+            "title": "iPhone 3GS",
+            "sale": false,
+            "price": 50.00,
+            "image": "iphone.png",
+            "tags": [ "lifestyle", "mobile"]
+        }
+    ],
+
+    "usuarios" : [
+        {
+        "name": "Blanca",
+        "email": "b@h.com",
+        "password": 1234
+        }
+    ]
+}

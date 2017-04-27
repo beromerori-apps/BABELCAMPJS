@@ -8,46 +8,80 @@ const mongoose = require('mongoose');
 // Le pedimos a mongoose el modelo de Anuncio
 const Anuncio = mongoose.model('Anuncio');
 
+const jwtAuth = require('../../lib/jwtAuth');
+router.use(jwtAuth);
+
 // GET /api/anuncios
 router.get('/', (req, res, next) => {
 
-    // Recogemos parametros de busqueda
-    const tags = req.query.tags;
-    const sale = req.query.sale;
-    const title = req.query.title;
-    const price = req.query.price;
+    console.log('Usuario autenticado con _id: ', req.usuario_id);
 
-    //const start = parseInt(req.query.start);
-    //const limit = parseInt(req.query.limit);
-    //const sort = req.query.sort;
-    //const includeTotal = req.query.includeTotal;
-   // const token = req.query.token;
+    // Recogemos parametros de busqueda
+    const tag = req.query.tag; // Busqueda por tag
+    const type = req.query.venta; // Busqueda por tipo de anuncio (venta o busqueda)
+    const title = req.query.nombre; // Busqueda por nombre del anuncio
+    let precio = req.query.precio; // Busqueda por rango de precio
 
     const criterios = {};
 
-    if(tags) {
-        criterios.tags = tags;
+    if(tag) {
+        criterios.tags = tag;
     }
 
-    if(sale) {
-        criterios.sale = sale;
+    if(type) {
+        criterios.sale = type;
     }
 
     if(title) {
-        criterios.title = title;
+        criterios.title = new RegExp(title, "i");
     }
 
-    if(price) {
-        criterios.price = price;
+    if(precio) {
+        
+        precio = precio.split('-');
+        
+        // Ej: precio=10
+        if(precio.length === 1) {
+            precio = parseInt(precio[0]);
+            criterios.price = precio;
+        }
+        else {
+
+            // Ej: precio=-10
+            if(precio[0] === '') {
+                precio = parseInt(precio[1]);
+                criterios.price = {$lte: precio};
+            }
+
+            // Ej: precio=10-
+            else if(precio[precio.length-1] === '') {
+                precio = parseInt(precio[0]);
+                criterios.price = {$gte: precio};
+            }
+
+            // Ej: precio=10-50
+            else {
+                let precio1 = parseInt(precio[0]);
+                let precio2 = parseInt(precio[precio.length-1]);
+                criterios.price = {$gte: precio1, $lte: precio2};
+            }
+        }
     }
 
-    Anuncio.list(criterios, (err, anuncios) => {
+    // Paginacion
+    const skip = parseInt(req.query.skip);
+    const limit = parseInt(req.query.limit);
+    const returnTotal = req.query.returnTotal;
+    
+
+    Anuncio.list(criterios, skip, limit, returnTotal, (err, anuncios) => {
         if(err) {
             next(err);
             return;
         }
         res.json({ success: true, result: anuncios });
     });
+    
 });
 
 // GET /api/anuncios/:id
@@ -64,18 +98,7 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-// GET /api/anuncios/tags
-/*router.get('/tags', (req, res, next) => {
-    Anuncio.find({tags: ['work', 'lifestyle', 'motor', 'mobile']}).exec((err, tags) => {
-        if(err) {
-            next(err);
-            return;
-        }
-        res.json({success: true, result: tags});
-    }) 
-})*/
-
-// POST /api/anuncios
+// POST /api/anuncios -> NO HAY QUE HACERLO
 router.post('/', (req, res, next) => {
 
     const datosAnuncio = req.body;

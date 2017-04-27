@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+
 // Nos conectamos a la BBDD
 require('./lib/connectMongoose');
 require('./models/Anuncio');
