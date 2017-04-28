@@ -16,10 +16,10 @@ router.post('/registry', (req, res, next) => {
 
     // Recibimos datos del nuevo usuario
     const datosUsuario = req.body;
-   
+
     // Creo instancia de Usuario
     const usuario = new Usuario(datosUsuario);  
-
+    
     usuario.save((err, nuevoUsuario) => {
         if(err) {
             next(err);

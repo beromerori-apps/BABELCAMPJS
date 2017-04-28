@@ -99,7 +99,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 // POST /api/anuncios -> NO HAY QUE HACERLO
-router.post('/', (req, res, next) => {
+/*router.post('/', (req, res, next) => {
 
     const datosAnuncio = req.body;
 
@@ -114,7 +114,7 @@ router.post('/', (req, res, next) => {
         }
         res.json({ success: true, result: anuncioGuardado });
     });
-});
+});*/
 
 // PUT /api/anuncios/:id
 router.put('/:id', (req, res, next) => {
