@@ -12,6 +12,8 @@ require('./lib/connectMongoose');
 require('./models/Anuncio');
 require('./models/Usuario');
 
+//const jwtAuth = require('./lib/jwtAuth'); Para meter autenticacion en /api/anuncios/imagenes
+
 var app = express();
 
 // view engine setup
@@ -25,6 +27,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Para visualizar las imagenes en el POSTMAN o navegador
+app.use('/api/anuncios/imagenes',  express.static(path.join(__dirname, 'public/images')));
+
+// Para añadir autenticacion a las imagenes
+//app.use('/api/anuncios/imagenes', jwtAuth, express.static(path.join(__dirname, 'public/images')));
 
 // Rutas de nuestra aplicacion
 app.use('/', require('./routes/index'));

@@ -65,7 +65,7 @@ leerFichero((err, data) => {
         });
     });
 
-    data.usuarios.forEach(function(usuario) {
+    data.usuarios.forEach(function(usuario) { // Hacerlo con async.concat
         const u = new Usuario(usuario);
         u.save(function(err, usuarioNuevo) {
             if(err) {

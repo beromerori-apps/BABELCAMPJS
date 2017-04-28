@@ -1,6 +1,6 @@
 ## NOMBRE DEL PROYECTO ##
 
-Nodepop
+### Nodepop ###
 
 Creacion de una API para consultar anuncios
 
@@ -11,11 +11,11 @@ Creacion de una API para consultar anuncios
 3. Instalacion de mongodb
 4. Instalacion de mongoose
 
-Para la creacion del cuerpo de nuestro proyecto ejecutamos: npm install express-generator -g
+Para la creacion del cuerpo de nuestro proyecto ejecutamos: **npm install express-generator -g**
 
-Para la instalacion de las dependencias necesarias: npm init
+Para la instalacion de las dependencias necesarias: **npm init**
 
-Para inicializar la BBDD: npm run installDB
+Para inicializar la BBDD: **npm run installDB**
 
 ## AUTENTICACION ##
 
@@ -23,7 +23,7 @@ Realizada con JWT
 
 ## CONSULTAS ##
 
-GET /api/anuncios => Puede incluir filtros y paginacion
+GET /api/anuncios (Puede incluir filtros y paginacion)
 
 GET /api/anuncios/:id
 

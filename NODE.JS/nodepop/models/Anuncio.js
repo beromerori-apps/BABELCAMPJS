@@ -24,6 +24,10 @@ anuncioSchema.statics.list = function(criterios, skip, limit, returnTotal, callb
     query.exec(callback);
 }
 
+anuncioSchema.statics.allTags = function() {
+    return ['work', 'lifestyle', 'motor', 'mobile'];
+}
+
 // Creamos el modelo de Anuncio
 var Anuncio = mongoose.model('Anuncio', anuncioSchema);
 //mongoose.model('Anuncio', anuncioSchema);
