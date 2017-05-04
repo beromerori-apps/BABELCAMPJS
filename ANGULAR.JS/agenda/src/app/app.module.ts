@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 
 import { AppComponent }  from './app.component';
+import { CajaComponent } from './caja.component';
 
 // debugger; Da igual en el punto que lo pongamos, ya que se abrira el debug en las developer Tools (es como si pusieramos un punto de ruptura)
 
@@ -12,7 +13,8 @@ import { AppComponent }  from './app.component';
     FormsModule
   ],
   declarations: [ // Metemos todos los componentes, directivas y pipes
-    AppComponent 
+    AppComponent,
+    CajaComponent 
   ],
   providers: [ // Metemos los servicios
 

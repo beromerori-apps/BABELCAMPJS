@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
+var caja_component_1 = require("./caja.component");
 // debugger; Da igual en el punto que lo pongamos, ya que se abrira el debug en las developer Tools (es como si pusieramos un punto de ruptura)
 var AppModule = (function () {
     function AppModule() {
@@ -22,7 +23,8 @@ AppModule = __decorate([
             forms_1.FormsModule
         ],
         declarations: [
-            app_component_1.AppComponent
+            app_component_1.AppComponent,
+            caja_component_1.CajaComponent
         ],
         providers: [],
         bootstrap: [

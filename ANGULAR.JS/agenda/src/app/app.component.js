@@ -41,7 +41,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <h1>Hello {{alumnos}}</h1>\n    <h2>Y el numero de la suerte es: {{numeroDeLaSuerte}}</h2>\n    <textarea [rows]=\"textAreaLineas\"></textarea> \n    <div [class.caja]=\"pintamosClase\"></div> <!-- Sera <div class=\"caja\"></div> si 'pintamosClase' = true--> \n    <div [ngClass]=\"clases\"></div>\n    <p [style.color]=\"obtenerColor()\">Buenos dias</p>\n    <p [ngStyle]=\"obtenerEstilos()\">Buenas tardes</p>\n    <button (click)=\"mostrarMensaje()\">Mostrar mensaje</button>\n    <input [(ngModel)]=\"mensaje\" type=\"text\"/>\n    {{ mensaje }}\n    ",
+        templateUrl: './app.component.html',
         styles: ["\n    .caja {\n      width: 50px;\n      height: 50px;\n      background-color: red;\n    }"
         ]
     }),

@@ -7,18 +7,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `
-    <h1>Hello {{alumnos}}</h1>
-    <h2>Y el numero de la suerte es: {{numeroDeLaSuerte}}</h2>
-    <textarea [rows]="textAreaLineas"></textarea> 
-    <div [class.caja]="pintamosClase"></div> <!-- Sera <div class="caja"></div> si 'pintamosClase' = true--> 
-    <div [ngClass]="clases"></div>
-    <p [style.color]="obtenerColor()">Buenos dias</p>
-    <p [ngStyle]="obtenerEstilos()">Buenas tardes</p>
-    <button (click)="mostrarMensaje()">Mostrar mensaje</button>
-    <input [(ngModel)]="mensaje" type="text"/>
-    {{ mensaje }}
-    `,
+  templateUrl: './app.component.html',
   styles: [`
     .caja {
       width: 50px;
@@ -60,7 +49,6 @@ export class AppComponent  {
   /*constructor() {
     const seat: Coche = {
       ruedas: 4,
-
     };
   }*/
 
