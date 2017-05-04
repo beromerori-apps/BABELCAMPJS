@@ -1,55 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-/*interface Coche {
-  ruedas: number;
-  pegatinas?: string[];
-}*/
+import { Contacto } from './entidades/contacto';
+import { ContactosService } from './servicios/contactos.service';
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.component.html',
-  styles: [`
-    .caja {
-      width: 50px;
-      height: 50px;
-      background-color: red;
-    }`
-  ]
+  templateUrl: '/app/app.component.html',
+  
 })
-export class AppComponent  { 
-  alumnos = 'Babel'; 
 
-  numeroDeLaSuerte: number = 43;
+export class AppComponent implements OnInit  { 
 
-  // Binding de propiedades
-  textAreaLineas: number = 6;
+  listaContactos: Contacto[]; 
+  contactoSeleccionado: Contacto;
 
-  // Binding de clases
-  pintamosClase: boolean = true;
-  clases: any = { uno:true, dos: true };
+  constructor(private _contactosService: ContactosService) {}
 
-  constructor() {}
-
-  // Binding de estilos
-  obtenerColor(): string {
-    return 'green';
+  ngOnInit() {
+    this.listaContactos = this._contactosService.obtenerContactos();
   }
 
-  obtenerEstilos(): any {
-    return {
-      backgroundColor: 'red',
-      color: 'white'
-    }
+  mostrarDestalles(contacto: Contacto): void {
+    
+    //console.log('Contacto seleccionado: ', contacto);
+    this.contactoSeleccionado = contacto;
   }
-
-  mostrarMensaje(): void {
-    alert('Hola señores');
-  }
-
-  /*constructor() {
-    const seat: Coche = {
-      ruedas: 4,
-    };
-  }*/
 
 }

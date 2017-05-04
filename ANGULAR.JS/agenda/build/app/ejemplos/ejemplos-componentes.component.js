@@ -6,17 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var CajaComponent = (function () {
-    function CajaComponent() {
+var EjemplosComponentesComponent = (function () {
+    function EjemplosComponentesComponent() {
     }
-    return CajaComponent;
+    EjemplosComponentesComponent.prototype.escribeMensaje = function (mensaje) {
+        console.log(mensaje);
+    };
+    return EjemplosComponentesComponent;
 }());
-CajaComponent = __decorate([
+EjemplosComponentesComponent = __decorate([
     core_1.Component({
-        selector: 'caja',
-        template: '<div></div>',
-        styles: ["\n        div {\n            width: 50px;\n            height: 50px;\n            background-color: red;\n        }\n    "]
+        selector: 'ejemplos-componentes',
+        templateUrl: '/app/ejemplos/ejemplos-componentes.component.html'
     })
-], CajaComponent);
-exports.CajaComponent = CajaComponent;
-//# sourceMappingURL=caja.component.js.map
+], EjemplosComponentesComponent);
+exports.EjemplosComponentesComponent = EjemplosComponentesComponent;
+//# sourceMappingURL=ejemplos-componentes.component.js.map

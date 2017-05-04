@@ -3,7 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 
 import { AppComponent }  from './app.component';
-import { CajaComponent } from './caja.component';
+import { CajaComponent } from './ejemplos/caja.component';
+import { EjemplosBindingComponent } from './ejemplos/ejemplos-binding.component';
+import { EjemplosComponentesComponent } from './ejemplos/ejemplos-componentes.component';
+import { ListaContactosComponent } from './lista-contactos/lista-contactos.component';
+import { ContactosService } from './servicios/contactos.service';
+import { DetallesContactoComponent } from './detalles-contacto/detalles-contacto.component';
+import { EjemplosInyeccionComponent, Servicio1, Servicio2, Servicio2Provider } from './ejemplos/ejemplos-inyeccion.component';
+
 
 // debugger; Da igual en el punto que lo pongamos, ya que se abrira el debug en las developer Tools (es como si pusieramos un punto de ruptura)
 
@@ -14,9 +21,17 @@ import { CajaComponent } from './caja.component';
   ],
   declarations: [ // Metemos todos los componentes, directivas y pipes
     AppComponent,
-    CajaComponent 
+    CajaComponent,
+    EjemplosBindingComponent,
+    EjemplosComponentesComponent,
+    ListaContactosComponent,
+    DetallesContactoComponent,
+    EjemplosInyeccionComponent 
   ],
   providers: [ // Metemos los servicios
+    ContactosService,
+    Servicio1, // Este tiene @Injectable
+    Servicio2Provider
 
   ],
   bootstrap: [ // Componente raiz de nuestra app

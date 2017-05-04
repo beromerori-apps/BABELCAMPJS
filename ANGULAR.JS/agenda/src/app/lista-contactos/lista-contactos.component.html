@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let contacto of contactos" (click)="notificarContactoSeleccionado(contacto)">
+        <span>{{contacto.nombre}}</span>
+    </li>
+</ul>
