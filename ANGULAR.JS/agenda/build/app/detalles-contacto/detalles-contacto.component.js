@@ -12,17 +12,34 @@ var core_1 = require("@angular/core");
 var contacto_1 = require("../entidades/contacto");
 var DetallesContactoComponent = (function () {
     function DetallesContactoComponent() {
+        this.verFacebook = new core_1.EventEmitter();
+        this.verTwitter = new core_1.EventEmitter();
     }
+    DetallesContactoComponent.prototype.notificarFacebook = function () {
+        this.verFacebook.emit(this.contacto.generarRutaFacebook());
+    };
+    DetallesContactoComponent.prototype.notificarTwitter = function () {
+        this.verTwitter.emit(this.contacto.generarRutaTwitter());
+    };
     return DetallesContactoComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", contacto_1.Contacto)
 ], DetallesContactoComponent.prototype, "contacto", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], DetallesContactoComponent.prototype, "verFacebook", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], DetallesContactoComponent.prototype, "verTwitter", void 0);
 DetallesContactoComponent = __decorate([
     core_1.Component({
         selector: 'detalles-contacto',
-        templateUrl: '/app/detalles-contacto/detalles-contacto.component.html' // Ruta absoluta desde src porque no esta creado con @angular-cli
+        templateUrl: '/app/detalles-contacto/detalles-contacto.component.html',
+        styleUrls: ['app/detalles-contacto/detalles-contacto.component.css']
     })
 ], DetallesContactoComponent);
 exports.DetallesContactoComponent = DetallesContactoComponent;

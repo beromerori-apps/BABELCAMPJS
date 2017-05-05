@@ -17,13 +17,35 @@ export class AppComponent implements OnInit  {
   constructor(private _contactosService: ContactosService) {}
 
   ngOnInit() {
-    this.listaContactos = this._contactosService.obtenerContactos();
+    this._contactosService.obtenerContactos()
+                          .subscribe(contactos => {
+                            this.listaContactos = contactos;
+                            //console.log(this.listaContactos);
+                          });
   }
 
   mostrarDestalles(contacto: Contacto): void {
     
     //console.log('Contacto seleccionado: ', contacto);
     this.contactoSeleccionado = contacto;
+  }
+
+  navegarRuta(ruta: string) {
+    window.open(ruta, '_blank');
+  }
+
+  guardarContacto(contacto: Contacto) {
+    this._contactosService.guardarContacto(contacto)
+                          .subscribe(contacto => {
+                              console.log("Añadidio contacto: ", contacto);
+                              console.log(this.listaContactos);
+                          });
+                            
+                         
+    /*console.log(contacto);
+    this._contactosService.guardarContacto(contacto);
+    console.log(this.listaContactos);*/
+    //this._contactosService.guardarContacto(contacto);
   }
 
 }

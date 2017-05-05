@@ -15,11 +15,31 @@ var AppComponent = (function () {
         this._contactosService = _contactosService;
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.listaContactos = this._contactosService.obtenerContactos();
+        var _this = this;
+        this._contactosService.obtenerContactos()
+            .subscribe(function (contactos) {
+            _this.listaContactos = contactos;
+            //console.log(this.listaContactos);
+        });
     };
     AppComponent.prototype.mostrarDestalles = function (contacto) {
         //console.log('Contacto seleccionado: ', contacto);
         this.contactoSeleccionado = contacto;
+    };
+    AppComponent.prototype.navegarRuta = function (ruta) {
+        window.open(ruta, '_blank');
+    };
+    AppComponent.prototype.guardarContacto = function (contacto) {
+        var _this = this;
+        this._contactosService.guardarContacto(contacto)
+            .subscribe(function (contacto) {
+            console.log("Añadidio contacto: ", contacto);
+            console.log(_this.listaContactos);
+        });
+        /*console.log(contacto);
+        this._contactosService.guardarContacto(contacto);
+        console.log(this.listaContactos);*/
+        //this._contactosService.guardarContacto(contacto);
     };
     return AppComponent;
 }());
