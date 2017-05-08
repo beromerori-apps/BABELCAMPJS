@@ -4,8 +4,8 @@ import { Contacto } from '../entidades/contacto';
 
 @Component({
     selector: 'detalles-contacto',
-    templateUrl: '/app/detalles-contacto/detalles-contacto.component.html', // Ruta absoluta desde src porque no esta creado con @angular-cli
-    styleUrls: ['app/detalles-contacto/detalles-contacto.component.css']
+    templateUrl: './detalles-contacto.component.html', // Ruta absoluta desde src porque no esta creado con @angular-cli
+    styleUrls: ['./detalles-contacto.component.css']
 })
 
 export class DetallesContactoComponent {

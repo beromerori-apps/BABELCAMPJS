@@ -4,8 +4,8 @@ import { Contacto } from '../entidades/contacto';
 
 @Component({
     selector: 'formulario-contacto',
-    templateUrl: '/app/formulario-contacto/formulario-contacto.component.html',
-    styleUrls: ['app/formulario-contacto/formulario-contacto.component.css'] 
+    templateUrl: './formulario-contacto.component.html',
+    styleUrls: ['./formulario-contacto.component.css'] 
 })
 
 export class FormularioContactoComponent {

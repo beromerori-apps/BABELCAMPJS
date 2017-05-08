@@ -33,6 +33,7 @@ var AppComponent = (function () {
         var _this = this;
         this._contactosService.guardarContacto(contacto)
             .subscribe(function (contacto) {
+            _this.listaContactos.push(contacto);
             console.log("Añadidio contacto: ", contacto);
             console.log(_this.listaContactos);
         });
@@ -46,7 +47,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        templateUrl: '/app/app.component.html',
+        templateUrl: './app.component.html',
     }),
     __metadata("design:paramtypes", [contactos_service_1.ContactosService])
 ], AppComponent);
