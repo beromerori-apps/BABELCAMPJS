@@ -19,3 +19,11 @@ input.ng-touched.ng-valid {
     color: red;
     margin-bottom: 2px;
 }
+
+.avatar {
+    text-align: center;
+}
+
+img {
+    border-radius: 10px;
+}

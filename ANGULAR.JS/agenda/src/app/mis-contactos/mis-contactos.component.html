@@ -1,0 +1,15 @@
+<h1>Mis contactos</h1>
+
+<div class="row">
+
+    <div class="six columns">
+        <!-- Coleccion de contactos -->
+        <lista-contactos [contactos]="listaContactos" (seleccionado)="mostrarDestalles($event)"></lista-contactos>
+    </div>
+
+    <div class="six columns">
+        <!-- Detalles de contacto -->
+        <detalles-contacto [contacto]="contactoSeleccionado" (verFacebook)="navegarRuta($event)" (verTwitter)="navegarRuta($event)"></detalles-contacto>
+    </div>
+
+</div>

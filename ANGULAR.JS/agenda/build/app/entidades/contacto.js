@@ -12,7 +12,7 @@ var Contacto = (function () {
         this.avatar = avatar;
     }
     Contacto.desdeJSON = function (json) {
-        return new Contacto(json.id, json.nombre, json.apellidos, json.email, json.telefono, json.twitter, json.facebook, json.avatar);
+        return new Contacto(json.id, json.nombre, json.apellidos, json.email, json.telefono, json.twitter, json.facebook, json.avatar || '');
     };
     // Metodo de instancia (lo tienen todas las instancias de Contacto)
     Contacto.prototype.generarRutaFacebook = function () {

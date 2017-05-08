@@ -1,55 +1,77 @@
 <form #contactoForm="ngForm" (ngSubmit)="notificarContacto(contactoForm)">
 
+    <!-- Avatar -->
+    <div class="row">
+        <div class="offset-by-three six columns avatar">
+            <img [src]="rutaAvatar" alt="">
+        </div>
+    </div>
+
     <!-- Nombre -->
-    <div>
-        <label for="nombre">Nombre: </label>
-        <input type="text" id="nombre" name="nombre" ngModel #nombreRef="ngModel" placeholder="Ej. Tim" required minlength="2">
-        <div class="mensaje-error" *ngIf="nombreRef.touched && nombreRef.errors?.required">El campo nombre es requerido</div>
-        <div class="mensaje-error" *ngIf="nombreRef.touched && nombreRef.errors?.minlength">El campo nombre debe tener al menos {{nombreRef.errors.minlength.requiredLength}} letras</div>
+    <div class="row">
+        <div class="offset-by-three six columns">
+            <label for="nombre">Nombre: </label>
+            <input class="u-full-width" type="text" id="nombre" name="nombre" ngModel #nombreRef="ngModel" placeholder="Ej. Tim" required minlength="2">
+            <div class="mensaje-error" *ngIf="nombreRef.touched && nombreRef.errors?.required">El campo nombre es requerido</div>
+            <div class="mensaje-error" *ngIf="nombreRef.touched && nombreRef.errors?.minlength">El campo nombre debe tener al menos {{nombreRef.errors.minlength.requiredLength}} letras</div>
+        </div>
     </div>
 
     <!-- Apellidos -->
-    <div>
-        <label for="apellidos">Apellidos: </label>
-        <input type="text" id="apellidos" name="apellidos" ngModel #apellidosRef="ngModel" placeholder="Ej. Cook" required minlength="2">
-        <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.required">El campo apellidos es requerido</div>
-        <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.minlength">El campo apellidos debe tener al menos {{apellidosRef.errors.minlength.requiredLength}} letras</div>
+    <div class="row">
+        <div class="offset-by-three six columns">
+            <label for="apellidos">Apellidos: </label>
+            <input class="u-full-width" type="text" id="apellidos" name="apellidos" ngModel #apellidosRef="ngModel" placeholder="Ej. Cook" required minlength="2">
+            <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.required">El campo apellidos es requerido</div>
+            <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.minlength">El campo apellidos debe tener al menos {{apellidosRef.errors.minlength.requiredLength}} letras</div>
+        </div>
     </div>
 
     <!-- Email -->
-    <div>
-        <label for="email">Email: </label>
-        <input type="text" id="email" name="email" ngModel #emailRef="ngModel" placeholder="cook@cook.com" required pattern='^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$'>
-        <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.required">El campo email es requerido</div>
-        <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.pattern">El campo email debe ser del tipo "user@user.com"</div>
+    <div class="row">
+        <div class="offset-by-three six columns">
+            <label for="email">Email: </label>
+            <input class="u-full-width" type="text" id="email" name="email" ngModel #emailRef="ngModel" placeholder="cook@cook.com" required pattern='^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$'>
+            <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.required">El campo email es requerido</div>
+            <div class="mensaje-error" *ngIf="emailRef.touched && emailRef.errors?.pattern">El campo email debe ser del tipo "user@user.com"</div>
+        </div>
     </div>
 
     <!-- Telefono -->
-    <div>
-        <label for="telefono">Telefono: </label>
-        <input type="text" id="telefono" name="telefono" ngModel placeholder="123456789">
-        <!--<div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.required">El campo apellidos es requerido</div>
-        <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.minlength">El campo apellidos debe tener al menos {{apellidosRef.errors.minlength.requiredLength}} letras</div>-->
+    <div class="row">
+        <div class="offset-by-three six columns">
+            <label for="telefono">Telefono: </label>
+            <input class="u-full-width" type="text" id="telefono" name="telefono" ngModel placeholder="123456789">
+            <!--<div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.required">El campo apellidos es requerido</div>
+            <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.minlength">El campo apellidos debe tener al menos {{apellidosRef.errors.minlength.requiredLength}} letras</div>-->
+        </div>
     </div>
 
     <!-- Facebook -->
-    <div>
-        <label for="facebook">Facebook: </label>
-        <input type="text" id="facebook" name="facebook" ngModel placeholder="blanca">
-        <!--<div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.required">El campo apellidos es requerido</div>
+    <div class="row">
+        <div class="offset-by-three six columns">
+            <label for="facebook">Facebook: </label>
+            <input class="u-full-width" type="text" id="facebook" name="facebook" ngModel placeholder="blanca">
+            <!--<div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.required">El campo apellidos es requerido</div>
         <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.minlength">El campo apellidos debe tener al menos {{apellidosRef.errors.minlength.requiredLength}} letras</div>-->
+        </div>
     </div>
 
     <!-- Twitter -->
-    <div>
-        <label for="twitter">Twitter: </label>
-        <input type="text" id="twitter" name="twitter" ngModel placeholder="blanca">
-        <!--<div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.required">El campo apellidos es requerido</div>
-        <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.minlength">El campo apellidos debe tener al menos {{apellidosRef.errors.minlength.requiredLength}} letras</div>-->
+    <div class="row">
+        <div class="offset-by-three six columns">
+            <label for="twitter">Twitter: </label>
+            <input class="u-full-width" type="text" id="twitter" name="twitter" ngModel placeholder="blanca">
+            <!--<div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.required">El campo apellidos es requerido</div>
+            <div class="mensaje-error" *ngIf="apellidosRef.touched && apellidosRef.errors?.minlength">El campo apellidos debe tener al menos {{apellidosRef.errors.minlength.requiredLength}} letras</div>-->
+        </div>
     </div>
 
-
     <!-- Guardar contacto -->
-    <button type="submit" class="button-primary" [disabled]="contactoForm.invalid">Guardar</button>
+    <div class="row">
+        <div class="offset-by-three six columns">
+            <button type="submit" class="button-primary u-full-width" [disabled]="contactoForm.invalid">Guardar</button>
+        </div>
+    </div>
 
 </form>

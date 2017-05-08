@@ -3,18 +3,22 @@
 
 <!--<ejemplos-inyeccion></ejemplos-inyeccion>-->
 
-<formulario-contacto (formularioAceptado)="guardarContacto($event)"></formulario-contacto>
-
 <div class="container">
 
+    <!-- Titulo -->
     <header>
         <h1>Mi agenda</h1>
     </header>
 
-    <!-- Coleccion de contactos -->
-    <lista-contactos [contactos]="listaContactos" (seleccionado)="mostrarDestalles($event)"></lista-contactos>
+    <!-- Barra de navegacion -->
+    <nav>
+        <ul>
+            <li><a routerLink="/mis-contactos" routerLinkActive="seleccionado">Mis contactos</a></li>
+            <li><a routerLink="/nuevo-contacto" routerLinkActive="seleccionado">Nuevo contacto</a></li>
+        </ul>
+    </nav>
 
-    <!-- Detalles de contacto -->
-    <detalles-contacto [contacto]="contactoSeleccionado" (verFacebook)="navegarRuta($event)" (verTwitter)="navegarRuta($event)"></detalles-contacto>
+    <!-- Zona de navegacion -->
+    <router-outlet></router-outlet>
 
 </div>

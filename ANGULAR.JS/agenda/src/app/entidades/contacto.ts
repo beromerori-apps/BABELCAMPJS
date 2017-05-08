@@ -11,7 +11,7 @@ export class Contacto {
             json.telefono,
             json.twitter,
             json.facebook,
-            json.avatar
+            json.avatar || ''
         );
     }
 
@@ -23,7 +23,7 @@ export class Contacto {
         public telefono: string,
         public twitter: string,
         public facebook: string,
-        public avatar: string
+        public avatar?: string
     ) {}
 
     // Metodo de instancia (lo tienen todas las instancias de Contacto)

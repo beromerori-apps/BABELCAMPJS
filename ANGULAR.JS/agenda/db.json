@@ -1,67 +1,41 @@
 {
   "contactos": [
     {
-      "nombre": "aa",
-      "apellidos": "aa",
-      "email": "a@aa.com",
-      "telefono": "aa",
-      "twitter": "a",
-      "facebook": "a",
+      "nombre": "Tim",
+      "apellidos": "Cook",
+      "email": "cook@cook.com",
+      "telefono": "123456789",
+      "twitter": "Cook",
+      "facebook": "Cook",
       "id": 1
     },
     {
-      "nombre": "aa",
-      "apellidos": "aa",
-      "email": "a@aa.com",
-      "telefono": "aa",
-      "twitter": "a",
-      "facebook": "a",
+      "nombre": "Bill ",
+      "apellidos": "Gates",
+      "email": "bill@gates.com",
+      "telefono": "123456789",
+      "twitter": "billgates",
+      "facebook": "Bill Gates",
       "id": 2
     },
     {
-      "nombre": "aa",
-      "apellidos": "aa",
-      "email": "a@aa.com",
-      "telefono": "aa",
-      "twitter": "a",
-      "facebook": "a",
+      "nombre": "Austin",
+      "apellidos": "Power",
+      "email": "austin@power.com",
+      "telefono": "123456789",
+      "twitter": "power",
+      "facebook": "austin",
       "id": 3
     },
     {
-      "nombre": "aa",
-      "apellidos": "aa",
-      "email": "a@aa.com",
-      "telefono": "aa",
-      "twitter": "a",
-      "facebook": "a",
+      "nombre": "Steve ",
+      "apellidos": "Jobs",
+      "email": "steve.jobs@hotmail.com",
+      "telefono": "987654321",
+      "twitter": "SteveJobs",
+      "facebook": "Steve Jobs",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/josevnclch/128.jpg\n",
       "id": 4
-    },
-    {
-      "nombre": "aa",
-      "apellidos": "aa",
-      "email": "a@aa.com",
-      "telefono": "aa",
-      "twitter": "a",
-      "facebook": "a",
-      "id": 5
-    },
-    {
-      "nombre": "prueba",
-      "apellidos": "pp",
-      "email": "pp@pp.com",
-      "telefono": "asda",
-      "twitter": "asd",
-      "facebook": "asd",
-      "id": 6
-    },
-    {
-      "nombre": "Blanca",
-      "apellidos": "Romero",
-      "email": "blanca@hotmail.com",
-      "telefono": "1234567",
-      "twitter": "blanca",
-      "facebook": "blanca",
-      "id": 7
     }
   ]
 }

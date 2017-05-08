@@ -1,12 +1,12 @@
-<div *ngIf="contacto">
+<div class="u-full-width" *ngIf="contacto">
 
     <!--  -->
 
     <!-- Avatar -->
-    <img [src]="contacto?.avatar" alt="avatar">
+    <img [src]="contacto?.avatar">
 
     <!-- Nombre del contacto -->
-    <h5>{{ contacto.nombre }} {{ contacto.apellido }} </h5>
+    <h5>{{ contacto?.nombre }} {{ contacto?.apellido }} </h5>
     <!-- Cuando contacto === null se puede poner {{contacto?.nombre}} para que no de error -->
     <hr>
 
@@ -20,8 +20,8 @@
     </button>
 
     <!-- Correo del contacto -->
-    <span>{{ contacto.email }}</span>
+    <span>{{ contacto?.email }}</span>
 
     <!-- Telefono del contacto -->
-    <span>{{ contacto.telefono }}</span>
+    <span>{{ contacto?.telefono }}</span>
 </div>
