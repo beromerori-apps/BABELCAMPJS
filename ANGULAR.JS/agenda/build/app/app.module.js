@@ -23,6 +23,9 @@ var mis_contactos_component_1 = require("./mis-contactos/mis-contactos.component
 var nuevo_contacto_component_1 = require("./nuevo-contacto/nuevo-contacto.component");
 var contactos_resolve_service_1 = require("./servicios/contactos-resolve.service");
 var direcciones_1 = require("./configuracion/direcciones");
+var ejemplos_observables_component_1 = require("./ejemplos/ejemplos-observables.component");
+var ejemplos_pipe_component_1 = require("./ejemplos/ejemplos-pipe.component");
+var ordenar_pipe_1 = require("./ejemplos/ordenar.pipe");
 // debugger; Da igual en el punto que lo pongamos, ya que se abrira el debug en las developer Tools (es como si pusieramos un punto de ruptura)
 var AppModule = (function () {
     function AppModule() {
@@ -34,7 +37,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
-            http_1.HttpModule,
+            http_1.HttpModule, http_1.JsonpModule,
             app_routing_module_1.AppRoutingModule
         ],
         declarations: [
@@ -47,7 +50,11 @@ AppModule = __decorate([
             ejemplos_inyeccion_component_1.EjemplosInyeccionComponent,
             formulario_contacto_component_1.FormularioContactoComponent,
             mis_contactos_component_1.MisContactosComponent,
-            nuevo_contacto_component_1.NuevoContactoComponent
+            nuevo_contacto_component_1.NuevoContactoComponent,
+            ejemplos_observables_component_1.EjemplosObservablesComponent,
+            ejemplos_observables_component_1.EjemplosObservablesWikipediaComponent,
+            ejemplos_pipe_component_1.EjemplosPipeComponent,
+            ordenar_pipe_1.OrdenarPipe
         ],
         providers: [
             contactos_service_1.ContactosService,

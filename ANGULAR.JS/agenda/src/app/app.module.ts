@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { CajaComponent } from './ejemplos/caja.component';
@@ -17,6 +17,9 @@ import { MisContactosComponent } from './mis-contactos/mis-contactos.component';
 import { NuevoContactoComponent } from './nuevo-contacto/nuevo-contacto.component';
 import { ContactosResolve } from './servicios/contactos-resolve.service';
 import { ProveedorDirecciones } from './configuracion/direcciones';
+import { EjemplosObservablesComponent, EjemplosObservablesWikipediaComponent } from './ejemplos/ejemplos-observables.component';
+import { EjemplosPipeComponent } from './ejemplos/ejemplos-pipe.component';
+import { OrdenarPipe } from './ejemplos/ordenar.pipe';
 
 
 
@@ -27,7 +30,7 @@ import { ProveedorDirecciones } from './configuracion/direcciones';
   imports: [ // Metemos todos los modulos que necesita mi app
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpModule, JsonpModule,
     AppRoutingModule
   ],
   declarations: [ // Metemos todos los componentes, directivas y pipes
@@ -40,7 +43,11 @@ import { ProveedorDirecciones } from './configuracion/direcciones';
     EjemplosInyeccionComponent,
     FormularioContactoComponent,
     MisContactosComponent,
-    NuevoContactoComponent
+    NuevoContactoComponent,
+    EjemplosObservablesComponent,
+    EjemplosObservablesWikipediaComponent,
+    EjemplosPipeComponent,
+    OrdenarPipe
   ],
   providers: [ // Metemos los servicios
     ContactosService,
