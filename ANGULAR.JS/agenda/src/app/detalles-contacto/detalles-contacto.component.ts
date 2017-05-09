@@ -13,6 +13,8 @@ export class DetallesContactoComponent {
     @Input() contacto: Contacto;
     @Output() verFacebook: EventEmitter<string> = new EventEmitter();
     @Output() verTwitter: EventEmitter<string> = new EventEmitter();
+    @Output() eliminar: EventEmitter<Contacto> = new EventEmitter();
+
 
     notificarFacebook() {
         this.verFacebook.emit(this.contacto.generarRutaFacebook());
@@ -20,6 +22,10 @@ export class DetallesContactoComponent {
 
     notificarTwitter() {
         this.verTwitter.emit(this.contacto.generarRutaTwitter());
+    }
+
+    notificarEliminacion() {
+        this.eliminar.emit(this.contacto);
     }
 
 }

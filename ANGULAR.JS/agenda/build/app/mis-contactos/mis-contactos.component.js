@@ -23,7 +23,7 @@ var MisContactosComponent = (function () {
         var _this = this;
         // Otra forma
         this._activatedRoute.data.forEach(function (data) {
-            return _this.listaContactos = data.contactos;
+            _this.listaContactos = data.contactos;
         });
         /*this._contactosService.obtenerContactos()
                             .subscribe(contactos => {
@@ -36,6 +36,23 @@ var MisContactosComponent = (function () {
     };
     MisContactosComponent.prototype.navegarRuta = function (ruta) {
         window.open(ruta, '_blank');
+    };
+    MisContactosComponent.prototype.eliminarContacto = function (contacto) {
+        var _this = this;
+        if (confirm("\u00BFEstas seguro que quieres eliminar a " + contacto.nombre + "?")) {
+            this._contactosService.eliminarContacto(contacto).subscribe(function () {
+                debugger;
+                console.log('Eliminado');
+                var indice = _this.listaContactos.findIndex(function (c) { return c.id === contacto.id; });
+                if (indice !== -1) {
+                    // Lo elimino de la lista
+                    _this.listaContactos.splice(indice, 1);
+                    // Lo quito de seleccionado
+                    _this.contactoSeleccionado = null;
+                }
+            });
+        }
+        console.log('hola');
     };
     return MisContactosComponent;
 }());

@@ -1,33 +1,6 @@
 {
   "contactos": [
     {
-      "nombre": "Tim",
-      "apellidos": "Cook",
-      "email": "cook@cook.com",
-      "telefono": "123456789",
-      "twitter": "Cook",
-      "facebook": "Cook",
-      "id": 1
-    },
-    {
-      "nombre": "Bill ",
-      "apellidos": "Gates",
-      "email": "bill@gates.com",
-      "telefono": "123456789",
-      "twitter": "billgates",
-      "facebook": "Bill Gates",
-      "id": 2
-    },
-    {
-      "nombre": "Austin",
-      "apellidos": "Power",
-      "email": "austin@power.com",
-      "telefono": "123456789",
-      "twitter": "power",
-      "facebook": "austin",
-      "id": 3
-    },
-    {
       "nombre": "Steve ",
       "apellidos": "Jobs",
       "email": "steve.jobs@hotmail.com",

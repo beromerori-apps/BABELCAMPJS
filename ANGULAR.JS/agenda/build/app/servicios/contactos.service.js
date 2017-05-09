@@ -43,8 +43,7 @@ var ContactosService = (function () {
     // Eliminamos un contacto del servidor
     ContactosService.prototype.eliminarContacto = function (contacto) {
         return this._http
-            .delete(this._direcciones + "/contactos/" + contacto.id)
-            .map(function (res) { return contacto_1.Contacto.desdeJSON(res.json()); });
+            .delete(this._direcciones.servidor + "/contactos/" + contacto.id);
     };
     // Actualizamos un contacto en el servidor
     ContactosService.prototype.editarContacto = function (contacto) {

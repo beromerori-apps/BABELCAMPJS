@@ -23,9 +23,9 @@ export class MisContactosComponent implements OnInit {
 
         // Otra forma
 
-        this._activatedRoute.data.forEach( (data: {contactos: Contacto[]}) =>
-                this.listaContactos = data.contactos
-        )
+        this._activatedRoute.data.forEach( (data: {contactos: Contacto[]}) => {
+                this.listaContactos = data.contactos;
+        });
 
         /*this._contactosService.obtenerContactos()
                             .subscribe(contactos => {
@@ -41,6 +41,27 @@ export class MisContactosComponent implements OnInit {
 
     navegarRuta(ruta: string) {
         window.open(ruta, '_blank');
+    }
+
+    eliminarContacto(contacto: Contacto) {
+        if(confirm(`¿Estas seguro que quieres eliminar a ${contacto.nombre}?`)){
+            this._contactosService.eliminarContacto(contacto).subscribe(
+                () => {
+                    debugger;
+                    console.log('Eliminado');
+                    const indice: number = this.listaContactos.findIndex(
+                        (c: Contacto) => c.id === contacto.id );
+                    
+                    if(indice !== -1) {
+                        // Lo elimino de la lista
+                        this.listaContactos.splice(indice,1);
+                        // Lo quito de seleccionado
+                        this.contactoSeleccionado = null;
+                    }
+                });
+        }
+        
+        console.log('hola');
     }
 
 }
