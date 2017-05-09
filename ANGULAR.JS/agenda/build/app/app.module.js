@@ -26,6 +26,8 @@ var direcciones_1 = require("./configuracion/direcciones");
 var ejemplos_observables_component_1 = require("./ejemplos/ejemplos-observables.component");
 var ejemplos_pipe_component_1 = require("./ejemplos/ejemplos-pipe.component");
 var ordenar_pipe_1 = require("./ejemplos/ordenar.pipe");
+var ejemplos_directivas_component_1 = require("./ejemplos/ejemplos-directivas.component");
+var ejemplos_directivas_directive_1 = require("./ejemplos/ejemplos-directivas.directive");
 // debugger; Da igual en el punto que lo pongamos, ya que se abrira el debug en las developer Tools (es como si pusieramos un punto de ruptura)
 var AppModule = (function () {
     function AppModule() {
@@ -53,8 +55,8 @@ AppModule = __decorate([
             nuevo_contacto_component_1.NuevoContactoComponent,
             ejemplos_observables_component_1.EjemplosObservablesComponent,
             ejemplos_observables_component_1.EjemplosObservablesWikipediaComponent,
-            ejemplos_pipe_component_1.EjemplosPipeComponent,
-            ordenar_pipe_1.OrdenarPipe
+            ejemplos_pipe_component_1.EjemplosPipeComponent, ordenar_pipe_1.OrdenarPipe,
+            ejemplos_directivas_component_1.EjemplosDirectivasComponent, ejemplos_directivas_directive_1.EjemplosDirectivasAtributoDirective
         ],
         providers: [
             contactos_service_1.ContactosService,

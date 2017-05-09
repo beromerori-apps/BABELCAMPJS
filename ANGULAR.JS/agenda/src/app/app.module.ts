@@ -20,6 +20,8 @@ import { ProveedorDirecciones } from './configuracion/direcciones';
 import { EjemplosObservablesComponent, EjemplosObservablesWikipediaComponent } from './ejemplos/ejemplos-observables.component';
 import { EjemplosPipeComponent } from './ejemplos/ejemplos-pipe.component';
 import { OrdenarPipe } from './ejemplos/ordenar.pipe';
+import { EjemplosDirectivasComponent } from './ejemplos/ejemplos-directivas.component';
+import { EjemplosDirectivasAtributoDirective } from './ejemplos/ejemplos-directivas.directive';
 
 
 
@@ -46,8 +48,8 @@ import { OrdenarPipe } from './ejemplos/ordenar.pipe';
     NuevoContactoComponent,
     EjemplosObservablesComponent,
     EjemplosObservablesWikipediaComponent,
-    EjemplosPipeComponent,
-    OrdenarPipe
+    EjemplosPipeComponent, OrdenarPipe,
+    EjemplosDirectivasComponent, EjemplosDirectivasAtributoDirective
   ],
   providers: [ // Metemos los servicios
     ContactosService,
