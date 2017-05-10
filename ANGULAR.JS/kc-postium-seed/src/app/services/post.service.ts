@@ -5,6 +5,7 @@ import "rxjs/add/operator/map";
 
 import { BackendUri } from "./settings.service";
 import { Post } from "../models/post";
+import * as moment from 'moment';
 
 @Injectable()
 export class PostService {
@@ -30,9 +31,19 @@ export class PostService {
          |   - Ordenación: _sort=publicationDate&_order=DESC                                            |
          |----------------------------------------------------------------------------------------------*/
 
+        let x = moment().format('DD/MM/YYYY');
+        let publicationDate = x;
+        console.log(x);
+        let queryString = `?publicationDate_lte=${x}&_sort=${publicationDate}&_order=DESC`;
+
+        
+         // http://localhost:4200/posts?publicationDate_lte=x&_sort=publicationDate&_order=DESC 
         return this._http
-                   .get(`${this._backendUri}/posts`)
-                   .map((response: Response) => Post.fromJsonToList(response.json()));
+                   .get(`${this._backendUri}/posts${queryString}`)
+                   .map((response: Response) => {
+                        console.log('holi');
+                       return Post.fromJsonToList(response.json())
+                    });
     }
 
     getUserPosts(id: number): Observable<Post[]> {

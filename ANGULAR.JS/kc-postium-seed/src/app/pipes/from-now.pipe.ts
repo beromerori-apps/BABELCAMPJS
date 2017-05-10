@@ -16,6 +16,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FromNowPipe implements PipeTransform {
 
     transform(fecha: number): string {
+
         return moment(fecha).fromNow();
     }
 
