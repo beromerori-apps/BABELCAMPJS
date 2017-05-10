@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
  | Importa FromNowPipe para poder usarlo en este documento. |
  |----------------------------------------------------------*/
 
+import { FromNowPipe } from './pipes/from-now.pipe';
+ 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app.routing";
 import { AutoGrowDirective } from "./directives/auto-grow.directive";
@@ -31,7 +33,7 @@ import { SearchBoxComponent } from "./components/search-box/search-box.component
 import { UserPostsComponent } from "./components/user-posts/user-posts.component";
 
 @NgModule({
-    imports: [
+    imports: [ // Metemos todos los modulos que necesita mi app
         AppRoutingModule,
         BrowserModule,
         FormsModule,
@@ -45,7 +47,7 @@ import { UserPostsComponent } from "./components/user-posts/user-posts.component
      | No olvides declarar FromNowPipe en el módulo. |
      |-----------------------------------------------*/
 
-    declarations: [
+    declarations: [ // Metemos todos los componentes, directivas y pipes
         AppComponent,
         AutoGrowDirective,
         CategoryBoxComponent,
@@ -58,16 +60,17 @@ import { UserPostsComponent } from "./components/user-posts/user-posts.component
         PostFormComponent,
         PostsListComponent,
         SearchBoxComponent,
-        UserPostsComponent
+        UserPostsComponent,
+        FromNowPipe
     ],
-    providers: [
+    providers: [ // Metemos los servicios
         BackendUriProvider,
         CategoryService,
         PostDetailsResolve,
         PostService,
         PostsResolve,
     ],
-    bootstrap: [
+    bootstrap: [ // Componente raiz de nuestra app
         AppComponent
     ]
 })
