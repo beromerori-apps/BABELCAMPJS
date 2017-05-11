@@ -11,7 +11,7 @@ export class PostDetailsComponent implements OnInit {
 
     post: Post;
 
-    constructor(private _activatedRoute: ActivatedRoute) { }
+    constructor(private _activatedRoute: ActivatedRoute, private _router: Route) { }
 
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
@@ -29,6 +29,10 @@ export class PostDetailsComponent implements OnInit {
      | para hacer esto necesitas inyectar como dependencia el Router de la app. La ruta a navegar es '/posts/users', |
      | pasando como parámetro el identificador del autor.                                                            |
      |---------------------------------------------------------------------------------------------------------------*/
+
+     goToUserPosts(user: User) {
+        this._router.navigate(['posts/users', user.id]);
+     }
 
     /*--------------------------------------------------------------------------------------------------------------------|
      | ~~~ Yellow Path ~~~                                                                                                |

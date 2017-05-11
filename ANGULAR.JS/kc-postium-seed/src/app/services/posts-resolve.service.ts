@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
+import { ActivatedRouteSnapshot, Resolve, ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs/Observable";
 
 import { Post } from "../models/post";
@@ -19,6 +19,11 @@ export class PostsResolve implements Resolve<Post[]> {
          | a un usuario, llame a la función 'getUserPosts()' del servicio PostService. Recuerda    |
          | mirar en los parámetros de la ruta, a ver qué encuentras.                               |
          |-----------------------------------------------------------------------------------------*/
+
+        const id = route.params.userId;
+        if(id !== undefined) {
+            return this._postService.getUserPosts(id);
+        }
 
         /*-----------------------------------------------------------------------------------------|
          | ~~~ Yellow Path ~~~                                                                     |

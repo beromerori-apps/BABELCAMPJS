@@ -31,17 +31,15 @@ export class PostService {
          |   - Ordenación: _sort=publicationDate&_order=DESC                                            |
          |----------------------------------------------------------------------------------------------*/
 
-        let x = moment().format('DD/MM/YYYY');
-        let publicationDate = x;
+        let x = moment().valueOf();
         console.log(x);
-        let queryString = `?publicationDate_lte=${x}&_sort=${publicationDate}&_order=DESC`;
+        let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
 
         
          // http://localhost:4200/posts?publicationDate_lte=x&_sort=publicationDate&_order=DESC 
         return this._http
                    .get(`${this._backendUri}/posts${queryString}`)
                    .map((response: Response) => {
-                        console.log('holi');
                        return Post.fromJsonToList(response.json())
                     });
     }
@@ -65,8 +63,13 @@ export class PostService {
          |   - Ordenación: _sort=publicationDate&_order=DESC                                            |
          |----------------------------------------------------------------------------------------------*/
 
+        const x = moment().valueOf();
+        console.log(x);
+
+        const queryString = `?author.id=${id}&publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
+
         return this._http
-                   .get(`${this._backendUri}/posts`)
+                   .get(`${this._backendUri}/posts?author.id=${id}&${queryString}`)
                    .map((response: Response) => Post.fromJsonToList(response.json()));
     }
 
