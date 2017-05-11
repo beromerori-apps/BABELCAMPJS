@@ -33,6 +33,11 @@ export class PostsResolve implements Resolve<Post[]> {
          | Recuerda mirar en los parámetros de la ruta, a ver qué encuentras.                      |
          |-----------------------------------------------------------------------------------------*/
 
+        const categoryId = route.params.categoryId;
+        if(categoryId !== undefined) {
+            return this._postService.getCategoryPosts(categoryId);
+        }
+
         return this._postService.getPosts();
     }
 }

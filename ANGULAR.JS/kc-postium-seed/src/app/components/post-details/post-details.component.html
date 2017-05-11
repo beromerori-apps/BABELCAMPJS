@@ -2,7 +2,7 @@
     <div class="avatar">
         <img [src]="post.author.avatar">
     </div>
-    <div class="author" (click)="goToUserPosts({{post.author}})">
+    <div class="author" (click)="goToUserPosts(post.author)">
         <!--
         |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
         | Red Path                                                        |
@@ -35,5 +35,5 @@
     | en él para notificar los clics sobre las categorías del post.            |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     -->
-    <category-box [categories]="post.categories"></category-box>
+    <category-box [categories]="post.categories" (selectedCategory)="goToCategoryPosts($event)"></category-box>
 </div>

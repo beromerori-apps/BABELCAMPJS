@@ -98,7 +98,20 @@ export class PostService {
 
         return this._http
                    .get(`${this._backendUri}/posts`)
-                   .map((response: Response) => Post.fromJsonToList(response.json()));
+                   .map((response: Response) => { 
+                       let posts: Post[];
+                       const listaPost: Post[] = Post.fromJsonToList(response.json());
+                       for(let post of listaPost) {
+                          const categoriesPost = post.categories;
+                          for(let category of categoriesPost) {
+                              if(category.id === id) {
+                                posts.push(post);
+                              }
+                          }
+                       }
+                       //console.log(prueba);
+                       return posts;
+                   })
     }
 
     getPostDetails(id: number): Observable<Post> {
