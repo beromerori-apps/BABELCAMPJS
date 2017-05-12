@@ -66,6 +66,10 @@ export class PostFormComponent implements OnInit {
         post.likes = 0;
         post.author = User.defaultUser();
         post.publicationDate = this._getPostPublicationDate(form.value.publicationDate);
+        //post.media = '';
+        //post.categories = [];
+
+
         this.postSubmitted.emit(post);
     }
 }

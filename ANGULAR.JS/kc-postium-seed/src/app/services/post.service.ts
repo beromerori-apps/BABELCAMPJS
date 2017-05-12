@@ -33,7 +33,7 @@ export class PostService {
          |----------------------------------------------------------------------------------------------*/
 
         let x = moment().valueOf();
-        console.log(x);
+        //console.log(x);
         let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
 
         
@@ -145,6 +145,8 @@ export class PostService {
          | 'fromJson() para crar un nuevo objeto Post basado en la respuesta HTTP obtenida. |
          |----------------------------------------------------------------------------------*/
 
-        return null;
+        return this._http
+                   .post(`${this._backendUri}/posts`, post)
+                   .map((response: Response) => Post.fromJson(response.json()));
     }
 }

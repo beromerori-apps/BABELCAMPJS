@@ -31,11 +31,12 @@ export class PostsListComponent {
      |-----------------------------------------------------------------------------------------------------------------*/
 
      showPostDetails(post: Post): void {
+        console.log(post);
         this._router.navigate(['posts', post.id]);
      }
 
      showPostsUser(user: User): void {
-        console.log(user);
+        //console.log(user);
         this._router.navigate(['posts/users', user.id]);
      }
 
