@@ -6,6 +6,7 @@ import "rxjs/add/operator/map";
 import { BackendUri } from "./settings.service";
 import { Post } from "../models/post";
 import * as moment from 'moment';
+import { Category } from '../models/category';
 
 @Injectable()
 export class PostService {
@@ -64,12 +65,12 @@ export class PostService {
          |----------------------------------------------------------------------------------------------*/
 
         const x = moment().valueOf();
-        console.log(x);
+        //console.log(x);
 
         const queryString = `?author.id=${id}&publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
 
         return this._http
-                   .get(`${this._backendUri}/posts?author.id=${id}&${queryString}`)
+                   .get(`${this._backendUri}/posts${queryString}`)
                    .map((response: Response) => Post.fromJsonToList(response.json()));
     }
 
@@ -96,22 +97,34 @@ export class PostService {
          |   - Ordenación: _sort=publicationDate&_order=DESC                                                |
          |--------------------------------------------------------------------------------------------------*/
 
+        let x = moment().valueOf();
+        //console.log(x);
+        let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
+
         return this._http
-                   .get(`${this._backendUri}/posts`)
+                   .get(`${this._backendUri}/posts${queryString}`)
                    .map((response: Response) => { 
-                       let posts: Post[];
-                       const listaPost: Post[] = Post.fromJsonToList(response.json());
-                       for(let post of listaPost) {
-                          const categoriesPost = post.categories;
-                          for(let category of categoriesPost) {
-                              if(category.id === id) {
-                                posts.push(post);
-                              }
-                          }
-                       }
-                       //console.log(prueba);
-                       return posts;
-                   })
+
+                        // Obtengo la lista de TODOS los posts
+                        let  postsList = Post.fromJsonToList(response.json());
+                        //console.log('Lista de posts SIN filtrar: ',postsList);
+
+                        // Filtro esa lista obteniendo solo los que tengan la categoria con el id
+                        // pasado como parametro
+                        postsList = postsList.filter((post: Post) => {
+                            
+                            let find = post.categories.find((category: Category) => {
+                                return category.id === +id;
+                            });
+
+                            if(find)
+                                return true;
+                            return false;
+                        });
+
+                        //console.log(`Lista con los post que tengan la categoria ${id}`, postsList);
+                        return postsList;
+                   });
     }
 
     getPostDetails(id: number): Observable<Post> {

@@ -45,7 +45,7 @@ export class PostDetailsComponent implements OnInit {
      |--------------------------------------------------------------------------------------------------------------------*/
 
     goToCategoryPosts(category: Category) {
-        this._router.navigate(['posts/categories', category]);
+        this._router.navigate(['posts/categories', category.id]);
     }
 
 }
