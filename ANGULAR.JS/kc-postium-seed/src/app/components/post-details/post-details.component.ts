@@ -48,4 +48,7 @@ export class PostDetailsComponent implements OnInit {
         this._router.navigate(['posts/categories', category.id]);
     }
 
+    goToEditPost(post: Post) {
+        this._router.navigate(['posts/edit', post.id ]);
+    }
 }

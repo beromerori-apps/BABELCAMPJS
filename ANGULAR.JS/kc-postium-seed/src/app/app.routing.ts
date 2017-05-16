@@ -8,9 +8,12 @@ import { PostDetailsComponent } from "./components/post-details/post-details.com
 import { UserPostsComponent } from "./components/user-posts/user-posts.component";
 import { PostDetailsResolve } from "./services/post-details-resolve.service";
 import { PostsResolve } from "./services/posts-resolve.service";
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { EditStoryComponent } from "app/components/edit-story/edit-story.component";
 
 const routes: Routes = [
     {
+        // Ruta para ver todos los posts
         path: "posts",
         component: NewsComponent,
         resolve: {
@@ -18,6 +21,7 @@ const routes: Routes = [
         }
     },
     {
+        // Ruta para ver los posts de un usuario
         path: "posts/users/:userId",
         component: UserPostsComponent,
         resolve: {
@@ -25,6 +29,7 @@ const routes: Routes = [
         }
     },
     {
+        // Ruta para ver los posts por categorias
         path: "posts/categories/:categoryId",
         component: CategoryPostsComponent,
         resolve: {
@@ -32,17 +37,32 @@ const routes: Routes = [
         }
     },
     {
+        // Ruta para crear un nuevo post
         path: "new-story",
         component: NewStoryComponent
     },
     {
+        // Ruta para ver un post
         path: "posts/:postId",
         component: PostDetailsComponent,
         resolve: {
             post: PostDetailsResolve
         }
     },
+
+    // Broken White Path (AKA Blanco Roto): Edición de posts
+
     {
+        // Ruta para editar un post
+        path: "posts/edit/:postId",
+        component: EditStoryComponent,
+        resolve: {
+            post: PostDetailsResolve
+        } 
+    },
+
+    {
+        // Ruta por defecto (Ver todos los posts)
         path: "**",
         redirectTo: "/posts"
     }

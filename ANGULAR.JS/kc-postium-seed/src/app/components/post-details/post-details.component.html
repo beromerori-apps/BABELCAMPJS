@@ -36,4 +36,7 @@
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     -->
     <category-box [categories]="post.categories" (selectedCategory)="goToCategoryPosts($event)"></category-box>
+
+    <button (click)="goToEditPost(post)">Editar</button>
+
 </div>

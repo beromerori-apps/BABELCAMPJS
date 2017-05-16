@@ -251,28 +251,50 @@
       ],
       "likes": 4,
       "id": 10
-    }
-  ],
-  "categories": [
-    {
-      "id": 1,
-      "name": "Hipsters"
     },
     {
-      "id": 2,
-      "name": "Esto es serio"
+      "id": 11,
+      "title": "prueba",
+      "intro": "prueba",
+      "body": "prueba",
+      "media": "",
+      "publicationDate": 1494935365513,
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      }
     },
     {
-      "id": 3,
-      "name": "Tendencias"
+      "id": 12,
+      "title": "aaabbb",
+      "intro": "aaa",
+      "body": "aaa",
+      "media": "",
+      "publicationDate": 1494934763653,
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      }
     },
     {
-      "id": 4,
-      "name": "Postureo"
-    },
-    {
-      "id": 5,
-      "name": "Poor thing"
+      "media": "",
+      "publicationDate": 1494934815158,
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "likes": 0,
+      "id": 13
     }
   ]
 }
