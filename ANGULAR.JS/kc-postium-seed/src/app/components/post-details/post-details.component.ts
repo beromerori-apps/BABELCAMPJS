@@ -5,6 +5,8 @@ import { Post } from "../../models/post";
 import { User } from "app/models/user";
 import { Category } from "app/models/category";
 
+import { PostService } from "app/services/post.service";
+
 @Component({
     templateUrl: "post-details.component.html",
     styleUrls: ["post-details.component.css"]
@@ -13,7 +15,7 @@ export class PostDetailsComponent implements OnInit {
 
     post: Post;
 
-    constructor(private _activatedRoute: ActivatedRoute, private _router: Router) { }
+    constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _postService: PostService) { }
 
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
@@ -50,5 +52,23 @@ export class PostDetailsComponent implements OnInit {
 
     goToEditPost(post: Post) {
         this._router.navigate(['posts/edit', post.id ]);
+    }
+
+    isMyPost(post: Post) {
+        return (post.author.id == User.defaultUser().id) ? true : false;
+    }
+
+    deletePost(post: Post) {
+
+        if(confirm(`¿Estas segur@ ${post.author.name} de que desea eliminar el post?`)) {
+            this._postService.deletePost(post).subscribe(
+                () => {
+                        console.log("post eliminado");
+                        this._router.navigate(['posts']);
+                    }
+
+            );
+        }
+
     }
 }

@@ -10,6 +10,7 @@ import { PostDetailsResolve } from "./services/post-details-resolve.service";
 import { PostsResolve } from "./services/posts-resolve.service";
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { EditStoryComponent } from "app/components/edit-story/edit-story.component";
+import { DeleteStoryComponent } from "app/components/delete-story/delete-story.component";
 
 const routes: Routes = [
     {
@@ -56,6 +57,15 @@ const routes: Routes = [
         // Ruta para editar un post
         path: "posts/edit/:postId",
         component: EditStoryComponent,
+        resolve: {
+            post: PostDetailsResolve
+        } 
+    },
+
+    {
+        // Ruta para eliminar un post
+        path: "posts/delete/:postId",
+        component: DeleteStoryComponent,
         resolve: {
             post: PostDetailsResolve
         } 

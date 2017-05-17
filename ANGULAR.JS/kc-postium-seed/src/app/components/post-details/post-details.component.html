@@ -37,6 +37,8 @@
     -->
     <category-box [categories]="post.categories" (selectedCategory)="goToCategoryPosts($event)"></category-box>
 
-    <button (click)="goToEditPost(post)">Editar</button>
+    <button *ngIf="isMyPost(post)" (click)="goToEditPost(post)">Editar</button>
+
+    <button *ngIf="isMyPost(post)" (click)="deletePost(post)">Eliminar</button>
 
 </div>

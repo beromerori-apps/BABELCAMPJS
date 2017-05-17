@@ -32,6 +32,7 @@ import { PostService } from "./services/post.service";
 import { SearchBoxComponent } from "./components/search-box/search-box.component";
 import { UserPostsComponent } from "./components/user-posts/user-posts.component";
 import { EditStoryComponent } from "./components/edit-story/edit-story.component";
+import { DeleteStoryComponent } from "./components/delete-story/delete-story.component";
 
 @NgModule({
     imports: [ // Metemos todos los modulos que necesita mi app
@@ -57,6 +58,7 @@ import { EditStoryComponent } from "./components/edit-story/edit-story.component
         NewsComponent,
         NewStoryComponent,
         EditStoryComponent,
+        DeleteStoryComponent,
         PostDetailsComponent,
         PostPreviewComponent,
         PostFormComponent,

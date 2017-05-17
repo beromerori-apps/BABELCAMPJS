@@ -16,7 +16,7 @@ export class PostFormComponent implements OnInit {
 
     post: Post;
     newPost: boolean = true;
-    id: number;
+    //id: number;
 
     nowDatetimeLocal: string;
     publicationDateScheduled: boolean = false;
@@ -31,18 +31,16 @@ export class PostFormComponent implements OnInit {
 
         this._activatedRoute.data.forEach(
             (data: {post: Post}) => {
+               
                 this.post = data.post;
-                this.id = this.post.id;
-                console.log(this.id);
-                this.newPost = false;
                 console.log(this.post);
+                
+                if(!this.post) {
+                    this.post = { id: 0, title: '', intro: '', body: '', media: '', publicationDate: this._getPostPublicationDate(this.nowDatetimeLocal),
+                         categories: [], author: User.defaultUser(), likes: 0 };
+                }
             }
         );
-
-        if(this.newPost) {
-            this.post = { id: 0, title: '', intro: '', body: '', media: '', publicationDate: 0,
-                         categories: [], author: null, likes: 0 };
-        }
     }
 
     private _formatDateToDatetimeLocal(date: Date) {
@@ -87,53 +85,13 @@ export class PostFormComponent implements OnInit {
          | distintos elementos del formulario se correspondan con las propiedades de la clase Post.                    |
          |-------------------------------------------------------------------------------------------------------------*/
         
-         /*if(this.newPost) {
-            
-            this.post = Post.fromJson(form.value);
-            this.post.id = 12;
-            this.post.likes = 0;
-            this.post.author = User.defaultUser();
-            this.post.publicationDate = this._getPostPublicationDate(form.value.publicationDate);
-            this.post.media = '';
-            this.post.categories = [];
-            console.log(this.post);
-         }
-
-         else {
-            
-            this.post = Post.fromJson(form.value);
-            this.post.id = this.id;
-            console.log(this.id);
-            this.post.likes = this.post.likes;
-            this.post.author = User.defaultUser();
-            this.post.publicationDate = this._getPostPublicationDate(form.value.publicationDate);
-            this.post.media = '';
-            this.post.categories = this.post.categories;
-            console.log(this.post);
-         }*/
-
-        
-        let post: Post = Post.fromJson(form.value);
-        post.likes = 0;
-        post.author = User.defaultUser();
-        post.publicationDate = this._getPostPublicationDate(form.value.publicationDate);
-        post.media = '';
-        post.categories = [];
-
-
-        this.postSubmitted.emit(this.post);
-
-        /*this.post.id = this.post.id;
-        this.post = Post.fromJson(form.value);
-        console.log(this.post);*/
-
         /*let post: Post = Post.fromJson(form.value);
         post.likes = 0;
         post.author = User.defaultUser();
         post.publicationDate = this._getPostPublicationDate(form.value.publicationDate);
         post.media = '';
-        post.categories = [];
+        post.categories = [];*/
 
-        this.postSubmitted.emit(post);*/
+        this.postSubmitted.emit(this.post);
     }
 }
