@@ -12,7 +12,7 @@ export class LikesComponent {
     @Input() numberLikes: number;
     @Output() addLike: EventEmitter<number> = new EventEmitter();
     @Output() deleteLike: EventEmitter<number> = new EventEmitter();
-        like : boolean = false;
+              like : boolean = false;
 
     constructor() { }
 
@@ -23,12 +23,10 @@ export class LikesComponent {
 
     notifyDeleteLike() {
         this.like = false;
-         this.deleteLike.emit(1);
+        this.deleteLike.emit(1);
     }
 
     isLike() {
         return this.like;
     }
-    
-    
 }

@@ -15,7 +15,7 @@ export class PostService {
         private _http: Http,
         @Inject(BackendUri) private _backendUri: any) { }
 
-    getPosts(): Observable<Post[]> {
+    getPosts(search: string): Observable<Post[]> {
 
         /*----------------------------------------------------------------------------------------------|
          | ~~~ Pink Path ~~~                                                                            |
@@ -32,17 +32,28 @@ export class PostService {
          |   - Ordenación: _sort=publicationDate&_order=DESC                                            |
          |----------------------------------------------------------------------------------------------*/
 
-        let x = moment().valueOf();
+         let x = moment().valueOf();
         //console.log(x);
-        let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
 
-        
-         // http://localhost:4200/posts?publicationDate_lte=x&_sort=publicationDate&_order=DESC 
-        return this._http
-                   .get(`${this._backendUri}/posts${queryString}`)
-                   .map((response: Response) => {
-                       return Post.fromJsonToList(response.json())
+         if(!search) {
+            let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
+            // http://localhost:4200/posts?publicationDate_lte=x&_sort=publicationDate&_order=DESC 
+            return this._http
+                    .get(`${this._backendUri}/posts${queryString}`)
+                    .map((response: Response) => {
+                        return Post.fromJsonToList(response.json())
                     });
+         }
+
+         else {
+             let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC&title_like=${search}`;
+            // http://localhost:4200/posts?publicationDate_lte=x&_sort=publicationDate&_order=DESC 
+            return this._http
+                    .get(`${this._backendUri}/posts${queryString}`)
+                    .map((response: Response) => {
+                        return Post.fromJsonToList(response.json())
+                    });
+         }
     }
 
     getUserPosts(id: number): Observable<Post[]> {

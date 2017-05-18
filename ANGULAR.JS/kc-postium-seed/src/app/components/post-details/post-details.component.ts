@@ -88,7 +88,7 @@ export class PostDetailsComponent implements OnInit {
     decreaseLikes(n : number) {
         
         this.post.likes = +this.post.likes - n;
-
+        
         this._postService.editPost(this.post).subscribe(
             () => {
                 console.log("Decremento numero de likes");
