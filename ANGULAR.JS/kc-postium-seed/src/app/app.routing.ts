@@ -9,8 +9,9 @@ import { UserPostsComponent } from "./components/user-posts/user-posts.component
 import { PostDetailsResolve } from "./services/post-details-resolve.service";
 import { PostsResolve } from "./services/posts-resolve.service";
 import { PostFormComponent } from './components/post-form/post-form.component';
-import { EditStoryComponent } from "app/components/edit-story/edit-story.component";
-import { DeleteStoryComponent } from "app/components/delete-story/delete-story.component";
+import { EditStoryComponent } from "./components/edit-story/edit-story.component";
+import { DeleteStoryComponent } from "./components/delete-story/delete-story.component";
+import { LoginComponent } from "./components/login/login.component";
 
 const routes: Routes = [
     {
@@ -69,6 +70,15 @@ const routes: Routes = [
         resolve: {
             post: PostDetailsResolve
         } 
+    },
+
+    {
+        // Ruta para hacer login
+        path: "login",
+        component: LoginComponent,
+        /*resolve: {
+            post: PostDetailsResolve
+        }*/ 
     },
 
     {

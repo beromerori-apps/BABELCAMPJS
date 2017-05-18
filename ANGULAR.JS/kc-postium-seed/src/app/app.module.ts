@@ -34,6 +34,7 @@ import { UserPostsComponent } from "./components/user-posts/user-posts.component
 import { EditStoryComponent } from "./components/edit-story/edit-story.component";
 import { DeleteStoryComponent } from "./components/delete-story/delete-story.component";
 import { LikesComponent } from './components/likes/likes.component';
+import { LoginComponent } from "./components/login/login.component";
 
 @NgModule({
     imports: [ // Metemos todos los modulos que necesita mi app
@@ -67,6 +68,7 @@ import { LikesComponent } from './components/likes/likes.component';
         PostsListComponent,
         SearchBoxComponent,
         UserPostsComponent,
+        LoginComponent,
         FromNowPipe
     ],
     providers: [ // Metemos los servicios

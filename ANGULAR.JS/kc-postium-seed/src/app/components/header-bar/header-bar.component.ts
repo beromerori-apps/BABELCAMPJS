@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderBarComponent {
 
-    constructor(private _postService: PostService, private _router: Router) { }
+    constructor(private _router: Router) {
+        
+     }
 
     search(search: string) {
 
-        this._router.navigate(['posts', {queryParams: { title_like : search }}]);
+        this._router.navigate(['posts'], { queryParams: { q: search }});
 
     }
 

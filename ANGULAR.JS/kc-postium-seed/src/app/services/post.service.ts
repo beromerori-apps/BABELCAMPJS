@@ -33,10 +33,10 @@ export class PostService {
          |----------------------------------------------------------------------------------------------*/
 
          let x = moment().valueOf();
+         let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
         //console.log(x);
-
+        //debugger;
          if(!search) {
-            let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
             // http://localhost:4200/posts?publicationDate_lte=x&_sort=publicationDate&_order=DESC 
             return this._http
                     .get(`${this._backendUri}/posts${queryString}`)
@@ -46,10 +46,10 @@ export class PostService {
          }
 
          else {
-             let queryString = `?publicationDate_lte=${x}&_sort=publicationDate&_order=DESC&title_like=${search}`;
+             
             // http://localhost:4200/posts?publicationDate_lte=x&_sort=publicationDate&_order=DESC 
             return this._http
-                    .get(`${this._backendUri}/posts${queryString}`)
+                    .get(`${this._backendUri}/posts${queryString}&q=${search}`)
                     .map((response: Response) => {
                         return Post.fromJsonToList(response.json())
                     });

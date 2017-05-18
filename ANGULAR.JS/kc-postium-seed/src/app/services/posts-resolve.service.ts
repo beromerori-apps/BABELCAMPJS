@@ -38,6 +38,7 @@ export class PostsResolve implements Resolve<Post[]> {
             return this._postService.getCategoryPosts(categoryId);
         }
 
-        return this._postService.getPosts(null);
+        const search = route.queryParams.q;
+        return this._postService.getPosts(search);
     }
 }
