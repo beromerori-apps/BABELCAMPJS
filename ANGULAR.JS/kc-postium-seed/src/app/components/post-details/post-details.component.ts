@@ -15,7 +15,9 @@ export class PostDetailsComponent implements OnInit {
 
     post: Post;
 
-    constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _postService: PostService) { }
+    constructor(private _activatedRoute: ActivatedRoute, 
+                private _router: Router, 
+                private _postService: PostService) { }
 
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
@@ -69,6 +71,29 @@ export class PostDetailsComponent implements OnInit {
 
             );
         }
+    }
 
+    increaseLikes(n : number) {
+        
+        this.post.likes = +this.post.likes + n;
+
+        this._postService.editPost(this.post).subscribe(
+            () => {
+                console.log("Incrementado numero de likes");
+                this._router.navigate(['posts', this.post.id]);
+            }
+        );  
+    }
+
+    decreaseLikes(n : number) {
+        
+        this.post.likes = +this.post.likes - n;
+
+        this._postService.editPost(this.post).subscribe(
+            () => {
+                console.log("Decremento numero de likes");
+                this._router.navigate(['posts', this.post.id]);
+            }
+        );  
     }
 }

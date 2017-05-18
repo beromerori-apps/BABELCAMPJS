@@ -41,4 +41,6 @@
 
     <button *ngIf="isMyPost(post)" (click)="deletePost(post)">Eliminar</button>
 
+    <likes *ngIf="!isMyPost(post)" [numberLikes]="post.likes" (addLike)="increaseLikes($event)" (deleteLike)="decreaseLikes($event)"></likes>
+
 </div>
