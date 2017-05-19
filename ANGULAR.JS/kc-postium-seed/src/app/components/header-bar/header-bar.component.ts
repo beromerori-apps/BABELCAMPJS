@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { PostService } from '../../services/post.service';
 import { Router } from '@angular/router';
+//import { LoginComponent } from '../login/login.component';
+import { LoginService } from 'app/services/loggedUser.service';
 
 @Component({
     selector: "header-bar",
@@ -9,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderBarComponent {
 
-    constructor(private _router: Router) {
-        
-     }
+    isLoggedUser: boolean;
+
+    constructor(private _router: Router, private _loginService: LoginService) {}
 
     search(search: string) {
 
@@ -19,4 +21,8 @@ export class HeaderBarComponent {
 
     }
 
+    logOut() {
+        this._loginService.logOut();
+        this._router.navigate(['posts']);
+    }
  }

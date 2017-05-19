@@ -6,6 +6,7 @@ import { User } from "app/models/user";
 import { Category } from "app/models/category";
 
 import { PostService } from "app/services/post.service";
+import { LoginService } from '../../services/loggedUser.service';
 
 @Component({
     templateUrl: "post-details.component.html",
@@ -17,7 +18,8 @@ export class PostDetailsComponent implements OnInit {
 
     constructor(private _activatedRoute: ActivatedRoute, 
                 private _router: Router, 
-                private _postService: PostService) { }
+                private _postService: PostService,
+                private _loginService: LoginService) { }
 
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
@@ -57,7 +59,8 @@ export class PostDetailsComponent implements OnInit {
     }
 
     isMyPost(post: Post) {
-        return (post.author.id == User.defaultUser().id) ? true : false;
+        return (this._loginService.isLogged && post.author.id == this._loginService.user.id);
+        //return (post.author.id == User.defaultUser().id) ? true : false;
     }
 
     deletePost(post: Post) {

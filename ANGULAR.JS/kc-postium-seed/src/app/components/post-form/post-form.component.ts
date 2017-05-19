@@ -94,4 +94,8 @@ export class PostFormComponent implements OnInit {
 
         this.postSubmitted.emit(this.post);
     }
+
+    goBack() {
+        window.history.back();
+    }
 }
