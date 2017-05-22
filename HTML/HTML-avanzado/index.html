@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<div id="flower" data-width="30%" data-leaves="47" data-plant-height="2.4em"></div>
+
+<body>
+    <script>
+    var plant = document.getElementById('flower');
+    console.log(plant.dataset.leaves);
+    console.log(plant.dataset.plantHeight);
+    // 'plant-height' -> 'plantHeight'
+
+    plant.dataset.plantHeight = '3.6em';
+    console.log(plant.dataset.width);
+    </script>
+</body>
+
+</html>

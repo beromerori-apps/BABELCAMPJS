@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Storage.html</title>
+</head>
+
+<body>
+    <script>
+    // El navegador soporta Web Storage
+    // Setter
+    if (sessionStorage.getItem("pageSizer")) {
+        console.log('Ya existe');
+    } else {
+        sessionStorage.setItem("pageSize", 10);
+    }
+
+    sessionStorage.setItem("obj", JSON.stringify({
+        val1: true
+    }));
+
+    // Getter
+    var size = sessionStorage.getItem("pageSize");
+    console.log(typeof size);
+    var obj = sessionStorage.getItem("obj");
+    console.log(JSON.parse(obj));
+    </script>
+</body>
+
+</html>
