@@ -43,12 +43,18 @@
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/cookies.css">
+    <link rel="stylesheet" href="styles/geo.css">
 </head>
 
 <body>
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <div class="cookies">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <button>OK</button>
+    </div>
     <nav class="nav" id="nav">
         <a class="nav-logo" href="#home"><img src="assets/img/logo.gif" alt="Avenger's logo"></a>
         <ul class="nav-items">
@@ -131,7 +137,7 @@
                 </article>
             </div>
         </section>
-        <section id="movies">
+        <section id="movies" data-new-posts="3">
             <header>
                 <h2>Movies</h2>
             </header>
@@ -171,7 +177,7 @@
                     </div>
                     <div class="form-input">
                         <label for="birthdate">Birthdate</label>
-                        <input type="date" name="bithdate" id="bithdate" required>
+                        <input type="date" name="birthdate" id="birthdate" required>
                     </div>
                     <div class="form-input">
                         <label for="message">Message</label>
@@ -181,6 +187,7 @@
                 </form>
             </div>
         </section>
+        <section class="geo"></section>
     </main>
     <footer id="footer" class="container-fluid footer">
         <div class="row">
@@ -213,6 +220,8 @@
     <script src="scripts/promises.js"></script>-->
     <script src="scripts/team.js"></script>
     <script src="scripts/contact.js"></script>
+    <script src="scripts/cookies.js"></script>
+    <script src="scripts/geo.js"></script>
 </body>
 
 </html>

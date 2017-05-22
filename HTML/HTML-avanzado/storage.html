@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Storage.html</title>
+    <title></title>
 </head>
 
 <body>
     <script>
     // El navegador soporta Web Storage
     // Setter
-    if (sessionStorage.getItem("pageSizer")) {
+    // sessionStorage for temporal lifespan
+    if (localStorage.getItem("pageSize")) {
         console.log('Ya existe');
     } else {
-        sessionStorage.setItem("pageSize", 10);
+        localStorage.setItem("pageSize", 10);
     }
-
-    sessionStorage.setItem("obj", JSON.stringify({
+    localStorage.setItem("obj", JSON.stringify({
         val1: true
     }));
-
     // Getter
-    var size = sessionStorage.getItem("pageSize");
-    console.log(typeof size);
-    var obj = sessionStorage.getItem("obj");
+    var size = localStorage.getItem("pageSize");
+    console.log(+size + 1);
+    var obj = localStorage.getItem("obj");
     console.log(JSON.parse(obj));
     </script>
 </body>

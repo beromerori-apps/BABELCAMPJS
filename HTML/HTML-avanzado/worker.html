@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Worker</title>
+    <title></title>
 </head>
 
 <body>
     <script>
     // Teniendo el siguiente Web Worker
     var worker = new Worker("worker.js");
-    // Podemos terminar su ejecucion
-    worker.terminate();
-    worker = undefined;
-    // Recibir nitificaciones
+    // Podemos terminar su ejecución
+    // Recibir notificaciones
     worker.onmessage = function(event) {
         // En event.data tenemos el dato notificado
-        console.log(event);
+        console.log(event.data);
+        worker.terminate();
+        worker = undefined;
     };
     </script>
 </body>
