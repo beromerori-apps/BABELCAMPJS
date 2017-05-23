@@ -1,3 +1,5 @@
+'use strict';
+
 var dragSrcEl = null;
 
 function handleDragStart(e) {

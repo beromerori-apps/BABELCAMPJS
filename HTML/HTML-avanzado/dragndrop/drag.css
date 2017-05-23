@@ -1,0 +1,19 @@
+#columns {
+    display: flex;
+}
+
+.column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.column.over {
+    border-style: dashed;
+}

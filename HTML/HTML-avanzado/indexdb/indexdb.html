@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IndexDB</title>
+    <style>
+    button {
+        width: 200px;
+    }
+    
+    #result {
+        margin-top: 1em;
+        border: 1px solid #ccc;
+        min-height: 200px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="form-control">
+        <button id="button1">Get element</button>
+        <input type="number" id="id">
+    </div>
+    <div class="form-control">
+        <button id="button2">Get element by name</button>
+        <input type="text" id="name">
+    </div>
+    <div class="form-control">
+        <button id="button3">Get all by name</button>
+    </div>
+    <div class="form-control">
+        <button id="button4">Get elements than upper name</button>
+        <input type="text" id="upper-name" placeholder="name">
+    </div>
+    <div class="form-control">
+        <button id="button5">Get elements than lower name</button>
+        <input type="text" id="lower-name" placeholder="name">
+    </div>
+    <div class="form-control">
+        <button id="button6">Set age</button>
+        <input type="number" id="age" placeholder="age">
+    </div>
+    <div class="form-control">
+        <button id="button7">Delete</button>
+        <input type="number" id="delete-id" placeholder="id">
+    </div>
+    <div class="form-control">
+        <label>
+            prev
+            <input type="radio" name="direction" value="prev" checked>
+        </label>
+        <label>
+            next
+            <input type="radio" name="direction" value="next">
+        </label>
+    </div>
+    <div class="form-control">
+        <button id="reset">Reset</button>
+    </div>
+    <div id="result"></div>
+    <script>
+    'use strict';
+
+    // var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+    var request = indexedDB.open("database", 2);
+    var db;
+    var lastPeopleRequested;
+
+    request.onsuccess = function(e) {
+        console.log('Base de datos cargada correctamente ');
+        db = request.result;
+
+        fetch('https://jsonplaceholder.typicode.com/users').then(function(response) {
+            return response.json();
+        }).then(saveElements);
+    };
+
+    function saveElements(json) {
+        var people = json;
+        var transaction = db.transaction("people", "readwrite");
+        transaction.oncomplete = function(event) {
+            alert("All done!");
+        };
+        transaction.onerror = function(event) {
+            // handle errors!
+        };
+        var peopleObjectStore = transaction.objectStore("people");
+        for (var i in people) {
+            var addResponse = peopleObjectStore.add(people[i]);
+            addResponse.onsuccess = (function(i) {
+                return function() {
+                    console.log('added', i);
+                }
+            })(i);
+        }
+    }
+
+    request.onerror = function(e) {
+        console.log("Error cargando la base de datos");
+    }
+
+    request.onupgradeneeded = function(e) {
+        var db = event.target.result;
+        var objectStore = db.createObjectStore("people", {
+            keyPath: 'id',
+            autoIncrement: true
+        });
+        objectStore.createIndex('by_name', 'name', {
+            unique: false
+        });
+        objectStore.createIndex('by_dni', 'dni', {
+            unique: true
+        });
+    };
+
+    function showResult(text) {
+        console.log(text);
+        document.getElementById('result').innerHTML = text;
+    }
+
+    function appendResult(text) {
+        console.log(text);
+        document.getElementById('result').innerHTML += text;
+    }
+
+    function reset() {
+        document.getElementById('result').innerHTML = '';
+    }
+
+    function getDirection() {
+        return document.querySelector('input[name="direction"]:checked').value
+    }
+
+    document.getElementById('button1').addEventListener('click', function() {
+        var id = +document.getElementById('id').value || 1;
+
+        var transaction = db.transaction("people");
+        var objectStore = transaction.objectStore("people");
+        var request = objectStore.get(id);
+        request.onerror = function(event) {
+            // Handdle errors!
+        };
+        request.onsuccess = function(event) {
+            // Do something with the request.result!
+            var text = "Name for id " + id + " is " + (request.result ? request.result.name : 'dunno');
+            console.log(text);
+            lastPeopleRequested = request.result;
+            showResult(text);
+        }
+    });
+
+    document.getElementById('reset').addEventListener('click', function() {
+        reset();
+    });
+
+    document.getElementById('button2').addEventListener('click', function() {
+        //reset();
+        var name = document.getElementById('name').value || 'Ervin Howell';
+        var transaction = db.transaction("people");
+        var objectStore = transaction.objectStore("people");
+        var index = objectStore.index("by_name");
+        index.get(name).onsuccess = function(event) {
+            var text = "Donna's email is " + event.target.result.email + ' and id ' + event.target.result.id;
+            lastPeopleRequested = request.result;
+            showResult(text);
+        };
+    });
+
+    document.getElementById('button3').addEventListener('click', function() {
+        reset();
+        var transaction = db.transaction("people");
+        var objectStore = transaction.objectStore("people");
+        var index = objectStore.index("by_name");
+
+        // Using a normal cursor to grab whole people record objects
+        index.openCursor(null, getDirection()).onsuccess = function(event) {
+            var cursor = event.target.result;
+            if (cursor) {
+                var text = "<br>Name: " + cursor.key +
+                    ", id: " + cursor.value.id + ", email: " + cursor.value.email;
+                appendResult(text);
+                cursor.continue();
+            }
+        };
+
+    });
+
+    document.getElementById('button4').addEventListener('click', function() {
+        reset();
+        var name = document.getElementById('lower-name').value || 'Ervin Howell';
+        var transaction = db.transaction("people");
+        var objectStore = transaction.objectStore("people");
+        var index = objectStore.index("by_name");
+
+        // Using a normal cursor to grab whole people record objects
+
+        var lowerBoundKeyRange = IDBKeyRange.lowerBound(name);
+
+        index.openCursor(lowerBoundKeyRange, getDirection()).onsuccess = function(event) {
+            var cursor = event.target.result;
+            if (cursor) {
+                var text = "<br>Name: " + cursor.key +
+                    ", id: " + cursor.value.id + ", email: " + cursor.value.email;
+                appendResult(text);
+                cursor.continue();
+            }
+        };
+
+    });
+
+    document.getElementById('button5').addEventListener('click', function() {
+        reset();
+        var name = document.getElementById('upper-name').value || 'Ervin Howell';
+        var transaction = db.transaction("people");
+        var objectStore = transaction.objectStore("people");
+        var index = objectStore.index("by_name");
+
+        // Using a normal cursor to grab whole people record objects
+
+        var upperBoundKeyRange = IDBKeyRange.upperBound(name);
+
+        index.openCursor(upperBoundKeyRange, getDirection()).onsuccess = function(event) {
+            var cursor = event.target.result;
+            if (cursor) {
+                var text = "<br>Name: " + cursor.key +
+                    ", id: " + cursor.value.id + ", email: " + cursor.value.email;
+                appendResult(text);
+                cursor.continue();
+            }
+        };
+
+    });
+
+    document.getElementById('button6').addEventListener('click', function() {
+
+        if (!lastPeopleRequested) {
+            showResult('Missin last requested');
+            return;
+        }
+
+        var age = +document.getElementById('age').value || 42;
+        var objectStore = db.transaction(["people"], "readwrite").objectStore("people");
+        //var transaction = db.transaction("people");
+        lastPeopleRequested.age = age;
+        var requestUpdate = objectStore.put(lastPeopleRequested);
+        //var objectStore = transaction.objectStore("people");
+        //var request = objectStore.get(id);
+        requestUpdate.onerror = function(event) {
+            // Handdle errors!
+            showResult('Error');
+        };
+        requestUpdate.onsuccess = function(event) {
+            // Do something with the request.result!
+            showResult('Updated!');
+        };
+
+    });
+
+    document.getElementById('button7').addEventListener('click', function() {
+
+        var id = +document.getElementById('delete-id').value;
+        if (!id) {
+            showResult('Missing id');
+            return;
+        }
+
+        var objectStore = db.transaction(["people"], "readwrite").objectStore("people");
+        var request = objectStore.delete(id);
+        request.onsuccess = function(event) {
+            showResult('Deleted!');
+        };
+        request.onerror = function(event) {
+            showResult('Error');
+        };
+
+    });
+    </script>
+</body>
+
+</html>

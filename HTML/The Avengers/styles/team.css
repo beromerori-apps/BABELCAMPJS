@@ -43,6 +43,7 @@
 #team article {
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 #team #hulk img {
@@ -76,4 +77,8 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.column.over {
+    border-style: dashed;
 }

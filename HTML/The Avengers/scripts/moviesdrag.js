@@ -1,4 +1,7 @@
+'use strict';
+
 var dragSrcEl = null;
+var cols;
 
 function handleDragStart(e) {
     // Target (this) element is the source node.
@@ -49,13 +52,17 @@ function handleDragOver(e) {
     return false;
 }
 
-var cols = document.querySelectorAll('#columns .column');
+function moviesDragInit() {
 
-[].forEach.call(cols, function(col) {
-    col.addEventListener('dragstart', handleDragStart);
-    col.addEventListener('dragenter', handleDragEnter);
-    col.addEventListener('dragover', handleDragOver);
-    col.addEventListener('dragleave', handleDragLeave);
-    col.addEventListener('drop', handleDrop);
-    col.addEventListener('dragend', handleDragEnd);
-});
+    cols = document.querySelectorAll('#columns .column');
+
+    [].forEach.call(cols, function(col) {
+        col.addEventListener('dragstart', handleDragStart);
+        col.addEventListener('dragenter', handleDragEnter);
+        col.addEventListener('dragover', handleDragOver);
+        col.addEventListener('dragleave', handleDragLeave);
+        col.addEventListener('drop', handleDrop);
+        col.addEventListener('dragend', handleDragEnd);
+    });
+
+}
