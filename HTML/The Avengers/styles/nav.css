@@ -1,4 +1,13 @@
-.nav {
+.navbar .navbar-inverse {
+    border-radius: 0;
+}
+
+.navbar img {
+    height: 100%;
+}
+
+
+/*.nav {
     background-color: #141214;
     font-size: 1.1em;
     color: white;
@@ -50,3 +59,4 @@
 .nav .nav-logo img {
     height: 50px;
 }
+*/

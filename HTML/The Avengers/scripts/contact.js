@@ -2,7 +2,7 @@
 
 (function() {
 
-    initForm();
+    //initForm();
 
     function initForm() {
 
@@ -73,26 +73,16 @@
         sessionStorage.setItem('gender', $('input[name="gender"]').val());
         sessionStorage.setItem('birthdate', $('input[name="birthdate"]').val());
 
-        var user = {
+        // your code
+        window.service.contact.send({
             name: $('input[name="name"]').val(),
-            name: $('input[name="email"]').val(),
-            name: $('input[name="birthdate"]').val(),
-        }
-
-        db.save(user);
-
-        var data =
-
-            //your code
-            window.service.contact.send({
-                name: $('input[name="name"]').val(),
-                email: $('input[name="email"]').val(),
-                message: $('input[name="message"]').val(),
-            }).then(function() {
-                alert('sended!');
-            }).catch(function() {
-                alert('something happend!');
-            });
+            email: $('input[name="email"]').val(),
+            message: $('input[name="message"]').val()
+        }).then(function() {
+            alert('sended!');
+        }).catch(function() {
+            alert('something happend!');
+        });
     });
 
 })();

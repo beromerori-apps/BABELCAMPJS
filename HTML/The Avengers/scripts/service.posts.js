@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 (function() {
     //JSON.stringify(data);
 

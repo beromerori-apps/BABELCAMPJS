@@ -1,23 +1,25 @@
 #movies div {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
+    /*display: flex;
+flex-direction: row;
+align-items: stretch;
+*/
     width: 100%;
-    justify-content: space-around;
+    /*justify-content: space-around;
+*/
 }
 
 #movies article {
-    width: 40%;
+    /*width: 40%;*/
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #movies article img {
-    width: 85%;
+    width: 100%;
     height: 500px;
     object-fit: cover;
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 
 #movies article img:hover {
@@ -28,3 +30,35 @@
 #movies article p {
     width: 85%;
 }
+
+@media all and (max-width: 680px) {
+    #movies article img {
+        object-fit: contain;
+    }
+}
+
+
+/* 0px - 480px
+
+ * 481px - 960px
+
+ * > 961px */
+
+
+/*@media all and (max-width: 960px) {
+    #movies div {
+        flex-wrap: wrap;
+    }
+}
+
+@media all and (max-width: 480px) {
+    #movies article {
+        width: 100%;
+    }
+}
+
+@media all and (min-width: 481px) and (max-width: 960px) {
+    #movies article {
+        width: 33%;
+    }
+}*/

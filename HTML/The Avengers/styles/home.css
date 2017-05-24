@@ -7,7 +7,8 @@
     background-position: 50% 50%;
 }
 
-#home:after {
+
+/*#home:after {
     content: "";
     display: block;
     width: 100%;
@@ -18,7 +19,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 1;
     margin-top: 17px;
-}
+}*/
 
 #home h1 {
     visibility: hidden;

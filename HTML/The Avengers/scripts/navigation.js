@@ -8,4 +8,17 @@ $(document).ready(function() {
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 1000);
     });
+
+
+    var active;
+    document.querySelectorAll('a[href*="#"]').forEach(function(elem) {
+        elem.addEventListener('click', function() {
+            if (active) {
+                $(active).parent().removeClass('nav-item--active');
+            }
+
+            $(this).parent().addClass('nav-item--active');
+            active = this;
+        });
+    });
 });

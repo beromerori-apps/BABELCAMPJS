@@ -11,7 +11,7 @@
 
         fetch('https://jsonplaceholder.typicode.com/users').then(function(response) {
             return response.json();
-        }).then(saveElements);
+        }).then(save);
     };
 
     request.onupgradeneeded = function(e) {
@@ -35,7 +35,7 @@
 
         var transaction = db.transaction("people", "readwrite");
         transaction.oncomplete = function(event) {
-            alert("All done!");
+            //alert("All done!");
         };
         transaction.onerror = function(event) {
             // handle errors!

@@ -25,7 +25,10 @@ function successHandler(data) {
     iframe.src = 'https://www.google.com/maps/embed/v1/place?key=' + API_KEY + '&q=' + coords.latitude + ',' + coords.longitude;
     iframe.width = '500';
     iframe.height = '500';
-    document.body.appendChild(iframe);
+    //document.body.appendChild(iframe);
+
+    document.getElementsByClassName('geo')[0].appendChild(iframe);
+
     // <iframe
     //   width="600"
     //   height="450"

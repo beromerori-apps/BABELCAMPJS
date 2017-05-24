@@ -1,4 +1,4 @@
-.container {
+/*.container {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
@@ -33,6 +33,7 @@
 .row:after {
     clear: both;
 }
+*/
 
 .col-1,
 .col-2,
