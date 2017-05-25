@@ -1,0 +1,251 @@
+// $main-darker-color;
+// $main-ligher-color:
+// $secondary-color:
+// $secondary-darker-color;
+// $secondary-ligher-color:
+// $info-color:
+// $info-darker-color;
+// $info-ligher-color:
+// $alert-color:
+// $alert-darker-color;
+// $alert-ligher-color:
+// $danger-color:
+// $danger-darker-color;
+// $danger-ligher-color:lighter($danger-color, 20%);
+$main-color: blue;
+$main-text-color: white;
+$disabled-text-color: grey;
+$inverse-text-color: black;
+$secondary-text-color: green;
+$info-text-color: lightblue;
+$alert-text-color: yellow;
+$danger-text-color: red;
+$base-gutter: 15px;
+$transition-base-time: 0.3s;
+$transition-faster-time: 0.1s;
+$transition-longer-time: 0.5s;
+$transition-longest-time: 1s;
+$base-font: 14px;
+$h1-size: calc($base-font * 2); // 13,5px
+$h2-size: calc($base-font * 1.8); // 13,5px
+$h3-size: calc($base-font * 1.5); // 13,5px
+$h4-size: calc($base-font * 1.3); // 13,5px
+$h5-size: $base-font; // 13,5px
+$h6-size: calc($base-font * 0.9); // 13,5px
+body {
+    color: $main-text-color;
+    font-size: $h5-size;
+    margin: 0 $base-gutter;
+}
+
+nav {
+    border: 1px solid #ddd;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
+
+.navbar {
+    border: 1px solid #ddd;
+    .navbar-items {
+        color: $main-text-color;
+        &.navbar-item-active {
+            color: $inverse-text-color;
+            font-weight: bold;
+        }
+    }
+}
+
+// <nav class="navbar"> 
+//  <ul class="navbar-items">
+//      <li class="navbar-item-active"><li>
+//  </ul>
+// </nav>
+.form {
+    input {
+        color: $main-text-color;
+        &:disabled {
+            color: $disabled-text-color;
+        }
+        &:focus {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+@mixin clearfix {
+    display: inline-block;
+    &:after {
+        content: '';
+        display: block;
+    }
+    * html & {
+        height: 1px;
+    }
+}
+
+.menu {
+    @include clearfix;
+}
+
+section.block {
+    @include clearfix;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.box {
+    @include border-radius(10px);
+}
+
+@mixin ellipsis($width) {
+    width: $width;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.panel-text {
+    @include ellipsis(250px);
+}
+
+@mixin apply-to-ie-only {
+    html.ie {
+        @content;
+    }
+}
+
+@include apply-to-ie-only {
+    #logo {
+        background-image: url(/logo.gif);
+    }
+}
+
+@mixin buttons {
+    .btn {
+        border: 2px solid grey;
+        border-radius: 5px;
+        color: $main-text-color;
+        @content;
+    }
+}
+
+@include buttons {
+    &.btn-secundary {
+        color: $secondary-text-color;
+    }
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+$desktop-width: 1024px;
+$tablet-width: 768px;
+@mixin tablet {
+    @media(min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@include tablet {
+    main {
+        width: $tablet-width;
+    }
+}
+
+//@import "example";
+.sidebar {
+    width: 300px;
+    @media screen and(rientation: landscape) {
+        width: 500px;
+        .side-bar-items {
+            padding: 10px;
+        }
+    }
+}
+
+.box {
+    width: 200px;
+    @include tablet {
+        .boz-item {
+            color: $main-color;
+        }
+    }
+}
+
+.message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+}
+
+.success {
+    @extend .message;
+    border-color: green;
+}
+
+@mixin navbar {
+    // ...
+}
+
+.secondary-navbar {
+    @include navbar;
+}
+
+.secondary-navbar {
+    @extend .navbar;
+    flex-direction: column;
+}
+
+p {
+    @if 1 + 1==2 {
+        border: 1px solid;
+    }
+    @if 5 < 3 {
+        border: 2px dotted;
+    }
+    @if null {
+        border: 3px double;
+    }
+}
+
+@for $i from 1 through 10 {
+    .col-#{$i} {
+        width: $i * 10%;
+    }
+}
+
+$animals: puma,
+sea-slug,
+egret;
+@each $animal in $animals {
+    .#{$animal}-icon {
+        background: url('/images/#{$animal}.png');
+    }
+}
+
+$status: (danger: red,
+info: lightblue,
+alert: yellow,
+success: green,
+primary: blue);
+@each $status,
+$color in $status {
+    .color-#{$status} {
+        color: $color;
+    }
+    .btn.btn-#{$status} {
+        background-color: $color;
+        border-color: darker($color, 20%);
+        &:hover {
+            background-color: darker($color, 20%);
+        }
+    }
+}

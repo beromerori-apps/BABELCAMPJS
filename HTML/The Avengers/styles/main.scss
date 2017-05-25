@@ -1,0 +1,25 @@
+@import 'normalize';
+@import 'variables';
+@import 'responsive';
+@import 'about-us';
+@import 'cookies';
+@import 'fonts';
+@import 'footer';
+@import 'forms';
+@import 'geo';
+@import 'grid';
+@import 'home';
+//@import 'main';
+@import 'movies';
+@import 'nav';
+@import 'typo';
+@import 'team';
+body {
+    font-size: 16px;
+    font-family: Lato, Helvetica, sans-serif;
+    margin: 0;
+}
+
+section {
+    padding-top: 72px;
+}

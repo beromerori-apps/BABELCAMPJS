@@ -1,0 +1,79 @@
+form {
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    button[type="submit"] {
+        margin: 0 auto;
+        display: block;
+    }
+    label {
+        width: 150px;
+        display: inline-block;
+        transform: capitalize;
+    }
+}
+
+.form-input {
+    margin: 15px;
+    input,
+    textarea {
+        transition: border-color 0.3s;
+        border-radius: 8px;
+        border: 2px solid #ccc;
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    &:focus,
+    &:invalid:focus {
+        outline: none;
+        border-color: #999;
+    }
+    &:invalid {
+        border-color: red;
+    }
+    &:valid {
+        border-color: green;
+    }
+}
+
+.form-radio {
+    //@extend .form-input;
+    margin: 15px;
+    label {
+        width: initial;
+    }
+    input {
+        margin-right: 20px;
+    }
+}
+
+.button {
+    transition: border-color 0.3s ease-in-out, tranform 0.3s;
+    will-change: border-color, transform;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid #ddd;
+    padding: 10px 15px;
+    color: black;
+    border-radius: 5px;
+    &:hover {
+        transform: scale(1.2);
+        border-color: #ccc;
+        outline: none;
+        &:disabled {
+            border-color: #ddd;
+        }
+    }
+    &:focus {
+        border-color: #ccc;
+        outline: none;
+    }
+    &:active {
+        transform: scale(0.9);
+        color: white;
+        background-color: #999;
+    }
+    &:disabled {
+        color: #ddd;
+        cursor: default;
+    }
+}

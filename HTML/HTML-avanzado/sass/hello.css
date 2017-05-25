@@ -1,0 +1,266 @@
+body {
+    color: white;
+    font-size: 14px;
+    margin: 0 15px;
+}
+
+nav {
+    border: 1px solid #ddd;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar,
+.secondary-navbar {
+    border: 1px solid #ddd;
+}
+
+.navbar .navbar-items,
+.secondary-navbar .navbar-items {
+    color: white;
+}
+
+.navbar .navbar-items.navbar-item-active,
+.secondary-navbar .navbar-items.navbar-item-active {
+    color: black;
+    font-weight: bold;
+}
+
+.form input {
+    color: white;
+}
+
+.form input:disabled {
+    color: grey;
+}
+
+.form input:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu {
+    display: inline-block;
+}
+
+.menu:after {
+    content: '';
+    display: block;
+}
+
+* html .menu {
+    height: 1px;
+}
+
+section.block {
+    display: inline-block;
+}
+
+section.block:after {
+    content: '';
+    display: block;
+}
+
+* html section.block {
+    height: 1px;
+}
+
+.box {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.panel-text {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+html.ie #logo {
+    background-image: url(/logo.gif);
+}
+
+.btn {
+    border: 2px solid grey;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn.btn-secundary {
+    color: green;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    main {
+        width: 768px;
+    }
+}
+
+.sidebar {
+    width: 300px;
+}
+
+@media screen and (rientation: landscape) {
+    .sidebar {
+        width: 500px;
+    }
+    .sidebar .side-bar-items {
+        padding: 10px;
+    }
+}
+
+.box {
+    width: 200px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .box .boz-item {
+        color: blue;
+    }
+}
+
+.message,
+.success {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+}
+
+.success {
+    border-color: green;
+}
+
+.secondary-navbar {
+    flex-direction: column;
+}
+
+p {
+    border: 1px solid;
+}
+
+.col-1 {
+    width: 10%;
+}
+
+.col-2 {
+    width: 20%;
+}
+
+.col-3 {
+    width: 30%;
+}
+
+.col-4 {
+    width: 40%;
+}
+
+.col-5 {
+    width: 50%;
+}
+
+.col-6 {
+    width: 60%;
+}
+
+.col-7 {
+    width: 70%;
+}
+
+.col-8 {
+    width: 80%;
+}
+
+.col-9 {
+    width: 90%;
+}
+
+.col-10 {
+    width: 100%;
+}
+
+.puma-icon {
+    background: url("/images/puma.png");
+}
+
+.sea-slug-icon {
+    background: url("/images/sea-slug.png");
+}
+
+.egret-icon {
+    background: url("/images/egret.png");
+}
+
+.color-danger {
+    color: red;
+}
+
+.btn.btn-danger {
+    background-color: red;
+    border-color: darker(red, 20%);
+}
+
+.btn.btn-danger:hover {
+    background-color: darker(red, 20%);
+}
+
+.color-info {
+    color: lightblue;
+}
+
+.btn.btn-info {
+    background-color: lightblue;
+    border-color: darker(lightblue, 20%);
+}
+
+.btn.btn-info:hover {
+    background-color: darker(lightblue, 20%);
+}
+
+.color-alert {
+    color: yellow;
+}
+
+.btn.btn-alert {
+    background-color: yellow;
+    border-color: darker(yellow, 20%);
+}
+
+.btn.btn-alert:hover {
+    background-color: darker(yellow, 20%);
+}
+
+.color-success {
+    color: green;
+}
+
+.btn.btn-success {
+    background-color: green;
+    border-color: darker(green, 20%);
+}
+
+.btn.btn-success:hover {
+    background-color: darker(green, 20%);
+}
+
+.color-primary {
+    color: blue;
+}
+
+.btn.btn-primary {
+    background-color: blue;
+    border-color: darker(blue, 20%);
+}
+
+.btn.btn-primary:hover {
+    background-color: darker(blue, 20%);
+}

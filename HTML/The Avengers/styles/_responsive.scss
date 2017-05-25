@@ -1,0 +1,34 @@
+// $breakpoints: mobile,
+// tablet;
+// @each $breakpoint in $breakpoints {
+//     @mixin #{$breakpoint} {
+//         @media all and (max-width: $max-#{$breakpoint}) {
+//             @content;
+//         }
+//     }
+// }
+
+/* 0px - 480px
+
+ * 481px - 960px
+
+ * > 961px */
+
+@mixin mobile {
+    @media all and (max-width: $max-mobile) {
+        @content;
+    }
+}
+
+
+/* 0px - 480px
+
+ * 481px - 768px
+
+ * > 769px */
+
+@mixin tablet {
+    @media all and (max-width: $max-tablet) {
+        @content;
+    }
+}

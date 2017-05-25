@@ -1,0 +1,39 @@
+.col-base {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0;
+    padding-right: 0;
+    float: left;
+}
+
+@for $i from 1 through $columns {
+    .col-#{$i} {
+        @extend .col-base;
+        width: ($i * 100) / $columns;
+    }
+    .col-offset-#{$i} {
+        margin-left: ($i * 100) / $columns;
+    }
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}

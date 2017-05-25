@@ -1,0 +1,42 @@
+#about-us {
+    video {
+        width: 80%;
+    }
+    @include tablet {
+        // Aqui se añade lo del @mixin tablet (@media all and (max-width: $max-tablet) {})
+        width: 100%;
+        padding: 0;
+        .row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .col-6 {
+            width: 80%;
+            text-align: center;
+        }
+    }
+}
+
+//     #about-us video {
+    //     width: 80%;
+    // }
+    // /* 0px - 480px
+    //  * 481px - 768px
+    //  * > 769px */
+    // @media all and (max-width: 960px) {
+    //     #about-us {
+    //         width: 100%;
+    //         padding: 0;
+    //     }
+    //     #about-us .row {
+    //         display: flex;
+    //         flex-direction: column;
+    //         align-items: center;
+    //     }
+    //     #about-us .col-6 {
+    //         width: 90%;
+    //         text-align: center;
+    //     }
+    // }
+
