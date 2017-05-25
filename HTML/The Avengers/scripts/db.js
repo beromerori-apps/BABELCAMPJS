@@ -6,12 +6,8 @@
     var db;
 
     request.onsuccess = function(e) {
-        console.log('Base de datos cargada correctamente ');
+        console.log('Base de datos cargada correctamente');
         db = request.result;
-
-        fetch('https://jsonplaceholder.typicode.com/users').then(function(response) {
-            return response.json();
-        }).then(save);
     };
 
     request.onupgradeneeded = function(e) {
@@ -24,7 +20,7 @@
         objectStore.createIndex('by_name', 'name', {
             unique: false
         });
-        objectStore.createIndex('by_dni', 'dni', {
+        objectStore.createIndex('by_email', 'email', {
             unique: true
         });
     };
@@ -51,6 +47,6 @@
 
     window.db = {
         save: save
-    }
+    };
 
 })();

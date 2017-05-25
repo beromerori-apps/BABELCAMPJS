@@ -1,19 +1,19 @@
 {
-    "name": "The-Avengers",
-    "version": "0.0.1",
-    "homepage": "https://github.com/blancaromero/BABELCAMPJS",
-    "description": "An example project for learning puposes",
-    "main": "",
-    "keywords": [
-        "babel",
-        "keepcoding",
-        "learning"
-    ],
-    "authors": [
-        "Blanca Romero <blanca.romero@babel.es>"
-    ],
-    "license": "MIT",
-    "dependencies": {
-        "jquery": "^3.2.1"
-    }
+  "name": "The-Avengers",
+  "version": "0.0.1",
+  "homepage": "https://github.com/blancaromero/BABELCAMPJS",
+  "description": "An example project for learning puposes",
+  "main": "",
+  "keywords": [
+    "babel",
+    "keepcoding",
+    "learning"
+  ],
+  "authors": [
+    "Blanca Romero <blanca.romero@babel.es>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }

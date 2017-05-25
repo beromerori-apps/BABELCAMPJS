@@ -12,15 +12,11 @@ form {
     }
 }
 
-.form-input {
+.form-group {
     margin: 15px;
     input,
     textarea {
         transition: border-color 0.3s;
-        border-radius: 8px;
-        border: 2px solid #ccc;
-        font-size: 0.9em;
-        padding: 10px;
     }
     &:focus,
     &:invalid:focus {

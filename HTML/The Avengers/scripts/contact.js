@@ -2,7 +2,7 @@
 
 (function() {
 
-    //initForm();
+    initForm();
 
     function initForm() {
 
@@ -25,7 +25,7 @@
     function validateForm() {
 
         //var inputs = Array.prototype.slice.call($('input'), 0);
-        var inputs = $('input, textarea');
+        var inputs = $('#contact input, #contact textarea');
         //console.log('inputs', inputs);
 
         var validity = [];

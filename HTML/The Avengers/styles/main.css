@@ -629,30 +629,26 @@ form label {
     transform: capitalize;
 }
 
-.form-input {
+.form-group {
     margin: 15px;
 }
 
-.form-input input,
-.form-input textarea {
+.form-group input,
+.form-group textarea {
     transition: border-color 0.3s;
-    border-radius: 8px;
-    border: 2px solid #ccc;
-    font-size: 0.9em;
-    padding: 10px;
 }
 
-.form-input:focus,
-.form-input:invalid:focus {
+.form-group:focus,
+.form-group:invalid:focus {
     outline: none;
     border-color: #999;
 }
 
-.form-input:invalid {
+.form-group:invalid {
     border-color: red;
 }
 
-.form-input:valid {
+.form-group:valid {
     border-color: green;
 }
 
