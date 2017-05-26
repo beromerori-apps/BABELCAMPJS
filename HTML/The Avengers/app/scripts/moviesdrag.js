@@ -5,10 +5,10 @@ var cols;
 
 function handleDragStart(e) {
     // Target (this) element is the source node.
-    this.style.opacity = '0.4';
-    dragSrcEl = this;
+    e.target.style.opacity = '0.4';
+    dragSrcEl = e.target;
     e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML);
+    e.dataTransfer.setData('text/html', e.target.innerHTML);
 }
 
 function handleDragEnd(e) {

@@ -13,7 +13,7 @@
         localStorage.setItem('cookies', true);
         hideCookiesBar();
 
-    })
+    });
 
     function hideCookiesBar() {
         document.getElementsByClassName('cookies')[0].classList.add('ok');

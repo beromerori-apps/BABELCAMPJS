@@ -28,7 +28,7 @@ function pepe(arg1, arg2, arg3) {}
  * asdkasgdkjahskjd
  * asdjkabsdkj
  */
-console.log(1 == '1');
+console.log(1 === '1');
 console.log(1.0 === 1);
 console.log(0.1 + 0.2);
 console.log((0.1 + 0.2) === 0.3);
@@ -97,9 +97,6 @@ function coma1() {
 function coma2() {
     return;
     // NADA
-    {
-        val: true
-    }
 }
 
 var compra2 = [{
@@ -144,7 +141,7 @@ function Player(name, lastName, level) {
     this.level = level;
     this.play = function() {
         console.log('play!');
-    }
+    };
 }
 
 var jordan = new Player('Michael', 'Jordan', 'pro');
@@ -169,11 +166,11 @@ var arrayFalsy = {
     2: true
 };
 
-arrayFalsy[0]
-    // fn.call(obj);
-    // var fn2 = fn.bind(obj);
-    // fn2();
-    //
+console.log(arrayFalsy[0]);
+// fn.call(obj);
+// var fn2 = fn.bind(obj);
+// fn2();
+//
 var obj = {
     name: 'pepito',
     saludo: function() {
