@@ -1,0 +1,40 @@
+#banner {
+    height: 532px;
+    background-size: cover;
+    // padding: 30px;
+    @include xs {
+        background-image: url("../assets/img/banner-3x.png");
+        // height: 100vh;
+        // background-size: cover;
+    }
+    @include sm {
+        background-image: url("../assets/img/banner-2x.png");
+        // height: 500px;
+        // background-size: cover;
+    }
+    @include md {
+        background-image: url("../assets/img/banner-1x.png");
+        // height: 500px;
+        // // height: 500px;
+        // background-size: cover;
+    }
+    @include lg {
+        background-image: url("../assets/img/banner-1x.png");
+        // height: 500px;
+        // background-size: cover;
+    }
+    h1,
+    h3 {
+        text-align: center;
+    }
+    h1 {
+        padding-bottom: 30px;
+    }
+    img {
+        padding-top: 30px;
+    }
+}
+
+#menu {
+    padding-top: 2%;
+}

@@ -1,0 +1,13 @@
+{
+    "name": "funcy",
+    "homepage": "https://github.com/blancaromero/BABELCAMPJS",
+    "description": "",
+    "main": "",
+    "authors": [
+        "Blanca Romero Rico"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "bootstrap-sass": "^3.3.7"
+    }
+}
