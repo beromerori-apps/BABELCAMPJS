@@ -23,18 +23,123 @@
         // height: 500px;
         // background-size: cover;
     }
+    nav {
+        background-color: #e7eaee;
+    }
     h1,
     h3 {
         text-align: center;
     }
-    h1 {
-        padding-bottom: 30px;
+    div.text {
+        padding-bottom: 5.2%;
     }
-    img {
-        padding-top: 30px;
+    a {
+        color: #74787e;
+        text-decoration: none;
     }
 }
 
+#img-browser {
+    position: relative;
+    left: 22%;
+    //padding-top: 8.5%;
+}
+
 #menu {
+    position: relative;
+    left: 60%;
     padding-top: 2%;
+}
+
+#section1 {
+    //background-color: #1ABC9C;
+    height: 520px;
+    h2 {
+        padding-top: 30px;
+    }
+    div.items {
+        padding-top: 7%;
+        padding-left: 5%;
+    }
+    div.item {
+        text-align: center;
+    }
+}
+
+#map {
+    background-color: #f3f5f7;
+    height: auto;
+    h2 {
+        padding-top: 2%;
+    }
+    img {
+        position: relative;
+        left: 20%;
+    }
+}
+
+#section2 {
+    img {
+        padding-top: 15%;
+        padding-bottom: 16%;
+    }
+    h2 {
+        text-align: left;
+        margin-bottom: 40px;
+    }
+    div.info {
+        padding-top: 10%;
+    }
+}
+
+#footer {
+    background-color: #f3f5f7;
+    height: auto;
+    div.join-us {
+        padding-top: 5%;
+        //padding-bottom: 5%;
+    }
+    div.links {
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+    button {
+        position: relative;
+        left: 35%;
+        margin-top: 5%;
+        //margin-bottom: 5%;
+    }
+    h1 {
+        margin-bottom: 5%;
+    }
+    h1,
+    p {
+        color: #9099a6;
+    }
+    h6 {
+        color: #798290;
+    }
+    ul {
+        padding: 0;
+        list-style-type: none;
+    }
+    a {
+        color: #9099a6;
+        text-decoration: none;
+    }
+    hr {
+        background-color: white;
+    }
+    div.copyright {
+        padding-top: 2%;
+        padding-bottom: 2%;
+        a {
+            font-size: 12px;
+        }
+    }
+    div.jumbotron {
+        background-color: white;
+        margin-top: 5%;
+        //margin-bottom: 5%;
+    }
 }
