@@ -36,7 +36,8 @@
     div.sections {
         position: relative;
         left: 3%;
-        padding-top: 30px;
+        padding-top: 100px;
+        padding-bottom: 30px;
         ul {
             list-style: none;
         }
@@ -47,41 +48,124 @@
     img {
         width: 100%;
         height: 100%;
+        cursor: pointer;
+    }
+    div.modal {
+        h6 {
+            font-size: 15px;
+        }
+        p {
+            font-size: 12px;
+            color: #8a8f9c;
+        }
+        div.modal-dialog {
+            background-color: #2ECC71;
+        }
+        div.modal-header {
+            border-bottom: 0;
+        }
+        div.modal-body {
+            //background-color: #2ECC71;
+            div.jumbotron {
+                background-color: white;
+                padding: 20px 20px 0px 20px;
+                margin: 0;
+                border-radius: 3px;
+                hr {
+                    margin: 0;
+                }
+                #btn-likes {
+                    margin-top: 15px;
+                    margin-left: 15px;
+                    margin-bottom: 15px;
+                    color: #8a8f9c;
+                }
+                div.shared {
+                    padding: 0;
+                }
+                #btn-share {
+                    border-radius: 0;
+                    border-left: 0;
+                    border-top: 0;
+                    border-bottom: 0;
+                    border-right-color: #eeeeee;
+                    color: #8a8f9c;
+                }
+                #btn-lists {
+                    border-radius: 0;
+                    border-right: 0;
+                    border-top: 0;
+                    border-bottom: 0;
+                    border-left-color: #eeeeee;
+                    color: #8a8f9c;
+                }
+            }
+            ul.nav-tabs > li.active > a,
+            ul.nav-tabs > li.focus > a {
+                background-color: #e1e2e3;
+            }
+            button.btn-price {
+                margin-top: 7px;
+                border-color: #3498DB;
+                color: #3498DB;
+            }
+            div.tab-content {
+                div.content {
+                    padding-left: 0;
+                }
+                div.thumbnail {
+                    padding: 0;
+                    border: 0;
+                }
+            }
+        }
     }
 }
 
 #a {
-    background-color: #2ECC71;
+    height: auto;
+    //background-color: #2ECC71;
 }
 
 #b {
-    background-color: #E67E22;
+    height: auto;
+    //background-color: #E67E22;
     padding: 0;
+    button.btn-price {
+        margin-top: 7px;
+        border-color: #3498DB;
+        color: #3498DB;
+    }
 }
 
 #c {
     height: auto;
-    background-color: #E74C3C;
+    //background-color: #E74C3C;
     div.jumbotron {
         background-color: white;
         padding: 20px;
         margin: 0;
         border-radius: 3px;
-        #btn-facebook {
+        button.btn-social {
+            font-size: 12px;
             //background-color: #597ab6;
         }
         #btn-twitter {
             background-color: #55acee;
             border-color: #55acee;
         }
-        #btn-join-us {
-            border-radius: 0px;
+        hr {
+            margin-top: 0;
+        }
+        div.join-us {
+            text-align: center;
+        }
+        h6 {
+            font-size: 15px;
+        }
+        p {
+            font-size: 12px;
+            color: #8a8f9c;
         }
     }
-}
-
-#btn-price {
-    margin-top: 22px;
-    border-color: #3498DB;
-    color: #3498DB;
 }
