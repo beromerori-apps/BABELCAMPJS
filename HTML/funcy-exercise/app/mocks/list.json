@@ -12,7 +12,7 @@
         ],
         "md": [
             "http://dummyimage.com/600x600/cccccc/ffffff.png&text=a",
-            "http://dummyimage.com/600x600/cccccc/ffffff.png&text=b",
+            "../assets/img/fancy2.jpg",
             "http://dummyimage.com/600x600/cccccc/ffffff.png&text=c"
         ],
         "xs": [
@@ -38,7 +38,7 @@
         ],
         "md": [
             "http://dummyimage.com/600x600/cccccc/ffffff.png&text=a",
-            "http://dummyimage.com/600x600/cccccc/ffffff.png&text=b",
+            "../assets/img/fancy3.jpg",
             "http://dummyimage.com/600x600/cccccc/ffffff.png&text=c"
         ],
         "xs": [
