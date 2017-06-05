@@ -1,0 +1,21 @@
+{
+  "name": "vanilla-component",
+  "homepage": "https://github.com/blancaromero/BABELCAMPJS",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Blanca Romero <blanca.romero@babel.es>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^1.0.1"
+  }
+}

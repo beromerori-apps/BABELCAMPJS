@@ -1,0 +1,7 @@
+{
+    "name": "polymer-scratch",
+    "main": "polymer-scratch.html",
+    "dependencies": {
+        "polymer": "Polymer/polymer#^1.9.0"
+    }
+}

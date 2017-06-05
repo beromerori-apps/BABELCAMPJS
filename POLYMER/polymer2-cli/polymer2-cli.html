@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="polymer2-cli">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `polymer2-cli`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class Polymer2Cli extends Polymer.Element {
+      static get is() { return 'polymer2-cli'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'polymer2-cli'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(Polymer2Cli.is, Polymer2Cli);
+  </script>
+</dom-module>

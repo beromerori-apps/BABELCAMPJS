@@ -1,0 +1,45 @@
+<template>
+    <p>Hola <strong></strong></p>
+</template>
+
+<script>
+    (function(window, document) {
+        var documentoImportador = document,
+            documentoAImportar = (documentoImportador._currentScript || documentoImportador.currentScript)
+            .ownerDocument,
+            template = documentoAImportar.querySelector('template').content;
+        prototipoDeMiElemento = Object.create(HTMLElement.prototype);
+        prototipoDeMiElemento.who = 'Babel';
+
+        prototipoDeMiElemento.createCallback = function() {
+            var shadowRoot = this.creteShadowRoot();
+            clone = documentoImportador.importNode(template, true);
+
+            shadowRoot.appendChild(clone);
+            this.strong = shadowRoot.querySelector('strong');
+
+            if (this.hasAttribute('who')) {
+                var who = this.getAttribute('who');
+                this.setWho(who);
+            } else {
+                this.setWho(this.who);
+            }
+        };
+
+        prototipoDeMiElemento.attributeChangedCallback = function(attr, oldValue, newValue) {
+            if (attr === 'who') {
+                this.setWho(newValue);
+                this.strong.textContent = this.who;
+            }
+        };
+
+        prototipoDeMiElemento.setWho = function(value) {
+            this.who = value;
+        };
+
+        window.miElemento = documentoImportador.registerElement('hola-keepcoding', {
+            prototype: prototipoDeMiElemento
+        });
+
+    })(window, document);
+</script>

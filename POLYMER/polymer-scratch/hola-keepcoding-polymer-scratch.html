@@ -1,0 +1,19 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="hola-keepcoding-polymer-scratch">
+    <template>
+        <p>Hola, <strong>[[who]]</strong></p>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'hola-keepcoding-polymer-scratch',
+        properties: {
+            who: {
+                type: String,
+                value: 'Polymer'
+            }
+        }
+    });
+</script>
