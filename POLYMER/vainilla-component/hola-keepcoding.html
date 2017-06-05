@@ -4,19 +4,18 @@
 
 <script>
     (function(window, document) {
-        var documentoImportador = document,
-            documentoAImportar = (documentoImportador._currentScript || documentoImportador.currentScript)
-            .ownerDocument,
-            template = documentoAImportar.querySelector('template').content;
-        prototipoDeMiElemento = Object.create(HTMLElement.prototype);
+        var documentoImportador = document;
+        var documentoAImportar = (documentoImportador._currentScript || documentoImportador.currentScript).ownerDocument;
+        var template = documentoAImportar.querySelector('template').content;
+        var prototipoDeMiElemento = Object.create(HTMLElement.prototype);
         prototipoDeMiElemento.who = 'Babel';
 
         prototipoDeMiElemento.createCallback = function() {
             var shadowRoot = this.creteShadowRoot();
-            clone = documentoImportador.importNode(template, true);
+            var clone = documentoImportador.importNode(template, true);
 
             shadowRoot.appendChild(clone);
-            this.strong = shadowRoot.querySelector('strong');
+            this.clone = shadowRoot.querySelector('strong');
 
             if (this.hasAttribute('who')) {
                 var who = this.getAttribute('who');
