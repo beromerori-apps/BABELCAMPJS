@@ -1,0 +1,81 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="./character-card.html">
+
+<script src="https://cdn.rawgit.com/cfjedimaster/SWAPI-Wrapper/2c8a87c1/lib/swapi.js"></script>
+
+
+<dom-module id="my-view2">
+
+    <template>
+
+      <style include="shared-styles">
+        
+        :host {
+          display: block;
+
+          padding: 10px;
+        }
+
+      </style>
+
+    <template is="dom-repeat" items="{{characters}}" as="character">
+        <template is="dom-if" if="{{isBirthdayUnknown(character)}}">
+            <character-card character="{{character}}"></character-card>
+        </template>
+    </template>
+    <paper-button raised on-tap="requestMoreCharacters">Cargar mas personajes</paper-button>
+    <iron-request id="request"></iron-request>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-view2',
+            attached: function() {
+                var swapi = swapiModule;
+                that = this;
+                swapiModule.getPeople(that.randomPage(), function(characters) {
+                    that.characters = characters.results;
+                    console.log(that.characters);
+                });
+            },
+            randomPage: function() {
+                //console.log(Math.floor(Math.random(1, 7)));
+                return Math.floor(Math.random() * 8) + 1;
+            },
+            isBirthdayUnknown: function(character) {
+                return character.birth_year !== 'unknown';
+            },
+            requestMoreCharacters: function() {
+                var that = this;
+
+                that.$.request
+                    .send({
+                        url: "http://swapi.co/api/people/".concat(this.randomPage())
+                    })
+                    .then(function(character) {
+                        var stringObject = character.parseResponse();
+                        //that.characters.push(JSON.parse(stringObject));
+                        that.push('characters', JSON.parse(stringObject));
+
+                        // that.characters.push(JSON.parse(stringObject));
+                        // that.notifyPath('characters', that.characters);
+                        // console.log(that.characters);
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                    });
+            }
+        });
+    </script>
+</dom-module>

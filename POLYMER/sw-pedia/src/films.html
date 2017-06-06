@@ -1,0 +1,110 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="./film-card.html">
+
+<dom-module id="my-view1">
+
+    <template>
+
+      <style include="shared-styles">
+        :host {
+          display: block;
+
+          padding: 10px;
+        }
+
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        paper-card {
+            max-width: 500px;
+        }
+        .cafe-header { @apply --paper-font-headline; }
+        .cafe-light { color: var(--paper-grey-600); }
+        .cafe-location {
+            float: right;
+            font-size: 15px;
+            vertical-align: middle;
+        }
+        .cafe-reserve { color: var(--google-blue-500); }
+        iron-icon.star {
+            --iron-icon-width: 16px;
+            --iron-icon-height: 16px;
+            color: var(--paper-amber-500);
+        }
+        iron-icon.star:last-of-type { color: var(--paper-grey-500);}
+
+      </style>
+
+      <paper-button raised on-tap="makeRequest">Pide Star Wars</paper-button>
+
+      <iron-ajax 
+        auto 
+        url="http://swapi.co/api/films"
+        handle-as="json"
+        on-response="handleResponse"
+        debounce-duration="300">
+      </iron-ajax>
+
+      <template is="dom-if" if="{{!_isSingleFilm()}}">
+          <film-card film="{{film}}"></film-card>
+      </template>
+
+    <template is="dom-if" if="{{!_isSingleFilm()}}">
+        <template is="dom-repeat" items="{{films}}" as="film">
+        <film-card film="{{film}}"></film-card>
+      </template>
+    </template>
+    <!--<template is="dom-repeat" items="{{films}}" as="film">
+        <film-card film="{{film}}"></film-card>
+      </template>-->
+
+    </template>
+
+
+
+    <script>
+        Polymer({
+            is: 'my-view1',
+            attached: function() {
+
+
+
+                // console.log(document.querySelector('my-app').root.querySelector('app-root').tail)
+                // El tail tiene 3 propiedades:
+                // Prefix : Toda la ruta canon, especificada en app-route
+                // tail : Informacion adicional a la ruta canon
+                // _queryParams: toda la informacion de filtros especiales ubicados despues del ? en una url 
+
+            },
+            _isSingleFilm: function() {
+                var filmId = document.querySelector('my-app').root.querySelector('app-root').tail.path;
+                //that = this;
+                //console.log(filmId);
+                if (filmId && filmId !== '/') {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            },
+            handleResponse: function(response) {
+                this.films = response.detail.response.results;
+                // console.log('Request generada');
+            }
+        });
+    </script>
+
+</dom-module>

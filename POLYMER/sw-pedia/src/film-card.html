@@ -1,0 +1,83 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="film-card">
+
+    <template>
+
+      <style include="shared-styles">
+        
+        :host {
+          display: block;
+          padding: 10px;
+        }
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        paper-card {
+          max-width: 500px;
+        }
+        .cafe-header { @apply --paper-font-headline; }
+        .cafe-light { color: var(--paper-grey-600); }
+        .cafe-location {
+          float: right;
+          font-size: 15px;
+          vertical-align: middle;
+        }
+        .cafe-reserve { color: var(--google-blue-500); }
+            iron-icon.star {
+          --iron-icon-width: 16px;
+          --iron-icon-height: 16px;
+          color: var(--paper-amber-500);
+        }
+        iron-icon.star:last-of-type { color: var(--paper-grey-500); }
+      
+      </style>
+   
+      <paper-card>
+        <div class="card-content">
+          <div class="cafe-header">{{film.title}}
+            <div class="cafe-location cafe-light">
+              <iron-icon icon="communication:location-on"></iron-icon>
+              <span>{{film.release_date}}</span>
+            </div>
+          </div>
+          <div class="cafe-rating">
+            <iron-icon class="star" icon="star"></iron-icon>
+            <iron-icon class="star" icon="star"></iron-icon>
+            <iron-icon class="star" icon="star"></iron-icon>
+            <iron-icon class="star" icon="star"></iron-icon>
+            <iron-icon class="star" icon="star"></iron-icon>
+          </div>
+          <p>{{film.director}}</p>
+          <p class="cafe-light">{{film.opening_crawl}}</p>
+        </div>
+        <div class="card-actions">
+          <div class="horizontal justified">
+            <paper-icon-button icon="icons:event"></paper-icon-button>
+            <paper-button>{{film.producer}}</paper-button>
+            <paper-button>Episodio: {{film.episode_id}}</paper-button>
+            <!--<paper-button>9:00PM</paper-button>-->
+            <paper-button class="cafe-reserve">Mas informacion</paper-button>
+          </div>
+        </div>
+      </paper-card>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'film-card',
+            film: {
+                type: Object
+            }
+        });
+    </script>
+
+</dom-module>
