@@ -45,7 +45,7 @@
           <div class="cafe-header">{{character.name}}
             <div class="cafe-location cafe-light">
               <iron-icon icon="communication:location-on"></iron-icon>
-              <span>{{character.birth_date}}</span>
+              <span>{{character.birth_year}}</span>
             </div>
           </div>
           <div class="cafe-rating">
@@ -55,16 +55,12 @@
             <iron-icon class="star" icon="star"></iron-icon>
             <iron-icon class="star" icon="star"></iron-icon>
           </div>
-          <p>{{character.height}}</p>
-          <p class="cafe-light">{{character.opening_crawl}}</p>
-        </div>
-        <div class="card-actions">
+          <div class="card-actions">
           <div class="horizontal justified">
             <paper-icon-button icon="icons:event"></paper-icon-button>
-            <paper-button>{{character.height}}</paper-button>
-            <paper-button>Episodio: {{character.gender}}</paper-button>
-            <!--<paper-button>9:00PM</paper-button>-->
-            <paper-button class="cafe-reserve">Mas informacion</paper-button>
+            <paper-button>Estatura: {{character.height}}</paper-button>
+            <paper-button>Género: {{character.gender}}</paper-button>
+            <paper-button class="cafe-reserve">Más información</paper-button>
           </div>
         </div>
       </paper-card>

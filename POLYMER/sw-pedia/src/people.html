@@ -42,8 +42,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         Polymer({
             is: 'my-view2',
             attached: function() {
-                var swapi = swapiModule;
-                that = this;
+                var swapi = swapiModule,
+                    that = this;
                 swapiModule.getPeople(that.randomPage(), function(characters) {
                     that.characters = characters.results;
                     console.log(that.characters);
@@ -68,8 +68,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         //that.characters.push(JSON.parse(stringObject));
                         that.push('characters', JSON.parse(stringObject));
 
+                        // Esto funciona para notificar a Polymer del cambio
+                        // en un path, no profundo, regularmente Strings:
                         // that.characters.push(JSON.parse(stringObject));
-                        // that.notifyPath('characters', that.characters);
+                        // that.notifyPath('characters', that.characters)
                         // console.log(that.characters);
                     })
                     .catch(function(err) {

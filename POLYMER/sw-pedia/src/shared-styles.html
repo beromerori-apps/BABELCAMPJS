@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!-- shared styles for all views -->
 <dom-module id="shared-styles">
-  <template>
+    <template>
     <style>
       .card {
         margin: 24px;
@@ -40,6 +40,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: #212121;
         font-size: 22px;
       }
+
+      body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        paper-card {
+            max-width: 1000px;
+        }
+        
+        .cafe-header {
+            @apply --paper-font-headline;
+        }
+        
+        .cafe-light {
+            color: var(--paper-grey-600);
+        }
+        
+        .cafe-location {
+            float: right;
+            font-size: 15px;
+            vertical-align: middle;
+        }
+        
+        .cafe-reserve {
+            color: var(--google-blue-500);
+        }
+        
+        iron-icon.star {
+            --iron-icon-width: 16px;
+            --iron-icon-height: 16px;
+            color: var(--paper-amber-500);
+        }
+        
+        iron-icon.star:last-of-type {
+            color: var(--paper-grey-500);
+        }
     </style>
   </template>
 </dom-module>

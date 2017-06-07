@@ -11,100 +11,73 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="./film-card.html">
+<link rel="import" href="shared-styles.html">
+<script src="https://cdn.rawgit.com/cfjedimaster/SWAPI-Wrapper/2c8a87c1/lib/swapi.js"></script>
 
 <dom-module id="my-view1">
-
     <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+    </style>
+    <iron-ajax
+      auto
+      url="http://swapi.co/api/films"
+      handle-as="json"
+      on-response="handleResponse"
+      debounce-duration="300">
+    </iron-ajax>
 
-      <style include="shared-styles">
-        :host {
-          display: block;
-
-          padding: 10px;
-        }
-
-        body {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        paper-card {
-            max-width: 500px;
-        }
-        .cafe-header { @apply --paper-font-headline; }
-        .cafe-light { color: var(--paper-grey-600); }
-        .cafe-location {
-            float: right;
-            font-size: 15px;
-            vertical-align: middle;
-        }
-        .cafe-reserve { color: var(--google-blue-500); }
-        iron-icon.star {
-            --iron-icon-width: 16px;
-            --iron-icon-height: 16px;
-            color: var(--paper-amber-500);
-        }
-        iron-icon.star:last-of-type { color: var(--paper-grey-500);}
-
-      </style>
-
-      <paper-button raised on-tap="makeRequest">Pide Star Wars</paper-button>
-
-      <iron-ajax 
-        auto 
-        url="http://swapi.co/api/films"
-        handle-as="json"
-        on-response="handleResponse"
-        debounce-duration="300">
-      </iron-ajax>
-
-      <template is="dom-if" if="{{!_isSingleFilm()}}">
-          <film-card film="{{film}}"></film-card>
-      </template>
-
-    <template is="dom-if" if="{{!_isSingleFilm()}}">
-        <template is="dom-repeat" items="{{films}}" as="film">
-        <film-card film="{{film}}"></film-card>
-      </template>
-    </template>
-    <!--<template is="dom-repeat" items="{{films}}" as="film">
-        <film-card film="{{film}}"></film-card>
-      </template>-->
-
+    <template is="dom-if" if='{{_isSingleFilm()}}'>
+      <film-card film="{{currentFilm}}"></film-card>
     </template>
 
+    <template is="dom-if" if='{{!_isSingleFilm()}}'>
+      <template is="dom-repeat" items="{{films}}" as="film">
+        <film-card film="{{film}}"><film-card>
+      </template>
+    </template>
 
+    </template>
 
     <script>
         Polymer({
             is: 'my-view1',
             attached: function() {
-
-
-
-                // console.log(document.querySelector('my-app').root.querySelector('app-root').tail)
                 // El tail tiene 3 propiedades:
-                // Prefix : Toda la ruta canon, especificada en app-route
-                // tail : Informacion adicional a la ruta canon
-                // _queryParams: toda la informacion de filtros especiales ubicados despues del ? en una url 
-
+                // Prefix: Toda la ruta canon, especificada en <app-route>
+                // tail: Información adicional a la ruta Canon
+                // __queryParams: toda información de filtros especiales
+                // ubicados después del ? en una url
+                var swapi = swapiModule,
+                    that = this;
+                if (this._isSingleFilm) {
+                    var tail = document
+                        .querySelector('my-app')
+                        .root.querySelector('app-route')
+                        .tail.path,
+                        filmId = tail.substr(tail.length - 1);
+                    swapi.getFilm(filmId, function(film) {
+                        that.currentFilm = film;
+                    });
+                }
             },
             _isSingleFilm: function() {
-                var filmId = document.querySelector('my-app').root.querySelector('app-root').tail.path;
-                //that = this;
-                //console.log(filmId);
+                var filmId = document
+                    .querySelector('my-app').root
+                    .querySelector('app-route')
+                    .tail.path;
                 if (filmId && filmId !== '/') {
                     return true;
                 } else {
                     return false;
                 }
-
             },
             handleResponse: function(response) {
                 this.films = response.detail.response.results;
-                // console.log('Request generada');
             }
         });
     </script>
-
 </dom-module>

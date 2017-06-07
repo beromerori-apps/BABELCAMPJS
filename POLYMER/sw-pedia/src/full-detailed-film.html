@@ -1,0 +1,121 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-chip/paper-chip.html">
+<link rel="import" href="shared-styles.html">
+<script src="https://cdn.rawgit.com/cfjedimaster/SWAPI-Wrapper/2c8a87c1/lib/swapi.js"></script>
+<script src="../bower_components/ramda/dist/ramda.js"></script>
+
+<dom-module id="full-detailed-film">
+
+  <template>
+    
+      <style include="shared-styles">
+        :host {
+          display: block;
+
+          padding: 10px;
+        }
+      </style>
+
+      <paper-card elevation="0">
+        <div class="card-content">
+          <div class="cafe-header">{{film.title}}
+            <div class="cafe-location cafe-light">
+              <span>{{film.release_date}}</span>
+            </div>
+          </div>
+          <div class="cafe-rating">
+            <iron-icon class="star" icon="star"></iron-icon>
+            <iron-icon class="star" icon="star"></iron-icon>
+            <iron-icon class="star" icon="star"></iron-icon>
+            <iron-icon class="star" icon="star"></iron-icon>
+            <iron-icon class="star" icon="star"></iron-icon>
+          </div>
+          <p>{{film.director}}</p>
+          <p class="cafe-light">{{film.opening_crawl}}</p>
+        </div>
+        <div class="card-actions">
+          <div  class="horizontal justified">
+            <paper-icon-button icon="icons:event"></paper-icon-button>
+            <paper-button>{{film.producer}}</paper-button>
+            <paper-button>Episodio {{film.episode_id}}</paper-button>
+          </div>
+        </div>
+        <div class="card-actions">
+          <div class="horizontal justified">
+            <template is="dom-repeat" items="{{characters}}" as="character">
+              <paper-button noink>{{character.name}}</paper-button>
+            </template>
+            <!--<paper-button>{{character.name}}</paper-button>-->
+            <paper-button>{{film.producer}}</paper-button>
+          </div>
+        </div>
+      </paper-card>
+
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'full-detailed-film',
+      properties: {
+        film: {
+            type: Object
+        }
+      },
+      attached: function() {
+        var that = this;
+        console.log(this.film);
+      },
+      fetchExtraData: function() {
+        var that = this,
+        swapi = swapiModule,
+
+        collections = R.pick(['characters', 'planets', 'species', 'starships', 'vehicles'], that.film),
+        
+        characters = [],
+        charactersPromises;
+
+        charactersPromises = R.map(function (character) {
+          
+          return new Promise(function(resolve, reject) {
+            swapi.getPerson(character.split('people/')[1].split('/')[0], function(character) {
+              if(!character) {
+                reject(new Error());
+                return;
+              }
+              resolve(character);
+            });
+          });
+        },
+        collections.characters
+        );
+
+        Promise
+          .all(charactersPromises)
+          .then(function (characters) {
+            console.log(characters);
+            that.characters = characters;
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+
+          console.log(characters)
+      }
+      
+    });
+
+  </script>
+  
+</dom-module>
